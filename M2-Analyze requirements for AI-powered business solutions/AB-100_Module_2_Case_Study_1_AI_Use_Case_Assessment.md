@@ -1,4 +1,4 @@
-# AB-100 Module 2 --- Case Study 1: Assessing the Right AI Use Case
+# AB-100 Module 2 --- Case Study 1: Choosing the Right AI Approach
 
 ## Scenario
 
