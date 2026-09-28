@@ -1,4 +1,4 @@
-# AB-100 Module 2 --- Case Study 2: Data Grounding and Quality
+# AB-100 Module 2 --- Case Study 2: Improving AI Data Quality and Grounding
 
 ## Scenario
 
