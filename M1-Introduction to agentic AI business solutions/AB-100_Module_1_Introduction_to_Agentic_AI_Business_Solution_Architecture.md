@@ -328,6 +328,14 @@ Improve
 → Select Microsoft AI capabilities that provide the required functionality while supporting enterprise reliability and scalability.
 
 ---
+<div align="center">
+
+### 📘 Case Study 1 — Customer Service AI Transformation
+
+👉 **[Click here to read the case study](https://github.com/srtvabhi/AB-100-Agentic-AI-Business-Solutions-Architect/blob/main/M1-Introduction%20to%20agentic%20AI%20business%20solutions/AB-100_Case_Study_1_Customer_Service_AI_Transformation.md)**
+
+</div>
+
 
 # 3. Explore Microsoft AI Technologies for Business
 
@@ -680,6 +688,10 @@ Measurable Value
 → Identify the business outcome first and then select the AI capability that can deliver that outcome responsibly and at enterprise scale.
 
 ---
+> [!NOTE]
+> ### 📘 Case Study 2 — Choosing the Right Microsoft AI Technology
+>
+> 👉 **[Click here to read the case study](https://github.com/srtvabhi/AB-100-Agentic-AI-Business-Solutions-Architect/blob/main/M1-Introduction%20to%20agentic%20AI%20business%20solutions/AB-100_Case_Study_2_Choosing_the_Right_Microsoft_AI_Technology.md)**
 
 # 5. Identify Out-of-Box Microsoft AI Agent Resources
 
@@ -1148,6 +1160,10 @@ Connect everything from all six topics:
 ```
 
 ---
+> [!NOTE]
+> ### 📘 Case Study 3 — Build, Extend, or Use an OOB Agent?
+>
+> 👉 **[Click here to read the case study](https://github.com/srtvabhi/AB-100-Agentic-AI-Business-Solutions-Architect/blob/main/M1-Introduction%20to%20agentic%20AI%20business%20solutions/AB-100_Case_Study_3_Build_Extend_or_Use_an_OOB_Agent.md)**
 
 # Module 1 — Architect Questions & Expected Answers
 
