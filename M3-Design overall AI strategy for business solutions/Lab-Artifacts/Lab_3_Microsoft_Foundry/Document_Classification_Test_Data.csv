@@ -1,0 +1,11 @@
+DocumentId,DocumentText,ExpectedCategory
+DOC001,The customer reports that an X200 device is overheating and requests troubleshooting support.,Customer Service
+DOC002,The account executive is preparing a proposal for a new commercial vehicle customer.,Sales
+DOC003,The monthly invoice reconciliation process is complete.,Finance
+DOC004,The employee handbook has been updated with the new leave policy.,Human Resources
+DOC005,The warehouse team needs to review the production equipment maintenance schedule.,Operations
+DOC006,A customer has opened a support case about a repeated equipment warning.,Customer Service
+DOC007,The sales team is preparing a renewal proposal for an existing account.,Sales
+DOC008,The finance team is reviewing outstanding invoices and payment records.,Finance
+DOC009,HR is processing employee onboarding documentation.,Human Resources
+DOC010,Operations is reviewing equipment maintenance and production procedures.,Operations
