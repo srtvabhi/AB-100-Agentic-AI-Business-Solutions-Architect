@@ -1,0 +1,21 @@
+From: Maria Lopez <maria.lopez@example.com>
+Subject: X200 overheating during normal operation
+
+Hello Contoso Support,
+
+Our X200 industrial unit has started showing a high-temperature warning after approximately
+30 minutes of normal operation. The equipment is installed in the production area and has
+not been moved recently.
+
+We checked that the ventilation openings are not blocked and restarted the unit, but the
+temperature warning returned. The customer needs guidance on the next troubleshooting
+step and wants to know whether this issue could be covered by the warranty.
+
+Customer: Fabrikam Manufacturing
+Product: X200
+Issue: Overheating / high-temperature warning
+Requested help: Troubleshooting guidance and warranty information
+
+Thanks,
+Maria Lopez
+Fabrikam Manufacturing
