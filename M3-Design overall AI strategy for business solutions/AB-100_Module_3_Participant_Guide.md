@@ -100,1415 +100,1281 @@ security, and operational requirements.
 
 ### Concept
 
-Use the Cloud Adoption Framework (CAF) AI adoption phases---Strategy,
-Plan, Ready, Govern, Secure, Manage---and align them with the AI agent
-lifecycle: Plan agents, Govern & secure agents, Build agents, and
-Operate agents.
+CAF gives the enterprise adoption backbone; the agent lifecycle adds
+agent-specific planning, governance, building, and operations. The key
+is to turn each phase into a concrete architecture gate.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   Use CAF to prevent agent sprawl and architecture drift.
+-   Treat landing zones and data foundations as prerequisites, not
+    afterthoughts.
+-   Define an agent readiness checklist before production.
+-   Assign clear RACI ownership across architecture, platform, security,
+    and data.
+-   Operations must include telemetry, SLOs, cost, incident response,
+    and retirement.
+
+### Architecture Diagram
 
 ``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
+Strategy → Plan agents → business outcomes, use cases, platform decision, ROI hypothesis, Responsible AI
+Plan → Plan agents → skills, starter project, PoC, readiness assessment
+Ready → Govern & secure → landing zones, data foundation, identity, governance boundaries
+Govern → Govern & secure → policies, approvals, risk controls, audit
+Secure → Govern & secure → data/model/endpoint protection
+Build → Build agents → templates, evaluation gates, environments, CI/CD
+Manage → Operate agents → telemetry, SLOs, cost, incidents, lifecycle
 ```
 
-### Architect Questions
+### Decision Points
 
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
 
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
+### Architect Questions and Expected Answers
+
+**Q: What should Strategy produce?**\
+**Expected answer:** An AI strategy brief and agent technology plan with
+prioritized use cases, platform direction, guardrails, and success
+measures.
+
+**Q: What should Ready establish?**\
+**Expected answer:** Landing zones, resource organization, connectivity,
+data foundations, identity, and governance boundaries.
+
+**Q: What is the purpose of the Build phase?**\
+**Expected answer:** To standardize how agents are developed, evaluated,
+deployed, and governed.
+
+**Q: What belongs in Operate?**\
+**Expected answer:** Monitoring, SLOs, cost/usage reporting, incident
+response, rollout, tuning, and lifecycle management.
+
+------------------------------------------------------------------------
 
 ## Topic 3 --- Design strategy for building AI agents for business solutions
 
 ### Concept
 
-Start with measurable business outcomes, then choose the least complex
-agent approach that meets the requirement: prebuilt/SaaS, low-code
-Copilot Studio, or pro-code Microsoft Foundry/custom hosting.
+AI agent strategy starts with measurable business outcomes and then
+selects the least complex technology that satisfies the requirements.
+Microsoft Learn describes SaaS/prebuilt, Copilot Studio low-code,
+Foundry pro-code, and controlled hosting options.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   Start with business outcome and measurable impact.
+-   Compare SaaS, low-code, and pro-code against requirements---not
+    popularity.
+-   Check grounding, permissions, integration, latency, availability,
+    and networking.
+-   Use Dynamics 365 copilots as a benchmark before building custom
+    capabilities.
+-   Plan operational ownership and change management before selecting
+    the runtime.
+
+### Architecture Diagram
 
 ``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
+Business outcome
+   ↓
+Does SaaS / prebuilt fit?
+   ├─ Yes → Use it
+   └─ No
+        ↓
+Can Copilot Studio fit?
+   ├─ Yes → Low-code agent
+   └─ No
+        ↓
+Complex orchestration / integration?
+   ├─ Yes → Foundry / pro-code
+   └─ No
+        ↓
+Need strict isolation / runtime control?
+   └─ Consider controlled hosting
 ```
 
-### Architect Questions
+### Decision Points
 
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
 
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
+### Architect Questions and Expected Answers
+
+**Q: When should SaaS/prebuilt be used?**\
+**Expected answer:** When it meets the functional requirement with
+minimal customization.
+
+**Q: When is Copilot Studio a strong fit?**\
+**Expected answer:** For rapid low-code task/retrieval agents,
+business-led customization, connectors, and moderate workflow
+complexity.
+
+**Q: When is Foundry a stronger fit?**\
+**Expected answer:** For complex orchestration, deep integrations,
+advanced generative behavior, or sophisticated multi-agent workflows.
+
+**Q: What drives hosting choice?**\
+**Expected answer:** Security/isolation, latency, availability,
+networking, integration, compliance, and operational requirements.
+
+------------------------------------------------------------------------
 
 ## Topic 4 --- Design a multi-agent solution
 
 ### Concept
 
-Start with a single agent. Introduce multiple agents when separation of
-security/compliance, team ownership, modular specialization, or
-multi-workstream dependencies justify the added orchestration, latency,
-cost, and security surface.
+Multi-agent architecture decomposes responsibilities across specialized
+agents. Start with one agent unless security boundaries, team ownership,
+specialization, future modularity, or multi-workstream dependencies
+justify the extra coordination cost.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   Define every agent's role, scope, tools, permissions, inputs,
+    outputs, and escalation rules.
+-   Sequential = staged pipeline; concurrent = parallel independent
+    work.
+-   Group chat = mediated collaboration; handoff = controlled transfer;
+    Magentic = dynamic specialist selection.
+-   Account for latency, cost, security surface, observability, and
+    failure handling.
+-   Many apparent multi-agent requirements can be solved with better
+    retrieval, policies, or a single agent.
+
+### Architecture Diagram
 
 ``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
+User
+ ↓
+Orchestrator
+ ├── Customer Agent → customer data
+ ├── Finance Agent → finance data
+ └── Field Service Agent → field data
+        ↓
+Context / results combined
+        ↓
+Human or business action
 ```
 
-### Architect Questions
+### Decision Points
 
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
 
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
+### Architect Questions and Expected Answers
+
+**Q: When should a single agent remain the default?**\
+**Expected answer:** When the domain is bounded and decomposition is not
+required by security, ownership, or workflow complexity.
+
+**Q: What justifies multiple agents?**\
+**Expected answer:** Security/compliance boundaries, distinct team
+ownership, modular specialization, future expansion, or dependent
+workstreams.
+
+**Q: What is concurrent orchestration?**\
+**Expected answer:** Independent subtasks run in parallel and their
+results are aggregated.
+
+**Q: What is handoff orchestration?**\
+**Expected answer:** Context and control move to a specialist agent or
+human when a rule or threshold is reached.
+
+------------------------------------------------------------------------
 
 ## Topic 5 --- Develop use cases for prebuilt Microsoft 365 Copilot agents
 
 ### Concept
 
-Use prebuilt agents when the business process fits existing Microsoft
-365 capabilities and the organization needs fast value with limited
-customization.
+Prebuilt Microsoft 365 Copilot agents are strong candidates for
+repetitive, high-frequency, knowledge-heavy work where users already
+operate in Microsoft 365. Architects should connect the use case to
+measurable KPIs.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   Measure task frequency per user or team.
+-   Measure knowledge intensity and search effort.
+-   Identify delays, errors, bottlenecks, and manual drafting.
+-   Tie the use case to hours saved, cycle time, ticket volume, or
+    another KPI.
+-   Validate permissions and organizational knowledge before adoption.
+
+### Architecture Diagram
 
 ``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
+Task frequency
+     +
+Knowledge intensity
+     +
+Pain point
+     +
+Microsoft 365 context
+     +
+Measurable KPI
+     ↓
+Prebuilt Copilot agent
+     ↓
+Retrieval / drafting / guidance
+     ↓
+Productivity outcome
 ```
 
-### Architect Questions
+### Decision Points
 
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
 
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
+### Architect Questions and Expected Answers
+
+**Q: What is a strong prebuilt-agent use case?**\
+**Expected answer:** A repetitive, knowledge-heavy task with measurable
+value that fits existing Microsoft 365 workflows.
+
+**Q: Why measure frequency?**\
+**Expected answer:** High-frequency tasks provide more opportunity for
+measurable productivity gains.
+
+**Q: Why measure knowledge intensity?**\
+**Expected answer:** Knowledge-heavy tasks benefit from fast retrieval
+and synthesis.
+
+**Q: What must be validated before adoption?**\
+**Expected answer:** Business fit, knowledge access, permissions,
+expected KPI impact, and limitations.
+
+------------------------------------------------------------------------
 
 ## Topic 6 --- Define solution rules and constraints for AI components
 
 ### Concept
 
-Define explicit boundaries for data, tools, actions, behavior,
-networking, environments, operations, and human approval before an AI
-component moves into production.
+Rules and constraints define what an AI component may know, do, access,
+and decide. Copilot Studio provides managed low-code boundaries; Foundry
+provides more control and therefore requires stronger explicit
+governance.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   Define data, tool, behavior, environment, and operational
+    boundaries.
+-   Separate knowledge access from action permission.
+-   Require approval for high-impact decisions/actions.
+-   Scope connectors and identities using least privilege.
+-   Apply evaluation, monitoring, and audit requirements before
+    production.
+
+### Architecture Diagram
 
 ``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
+AI component
+ ├─ Data boundaries
+ ├─ Tool/action permissions
+ ├─ Behavior rules
+ ├─ Human approval
+ ├─ Identity/access
+ ├─ Environment/network
+ ├─ Evaluation
+ └─ Operations
+        ↓
+   Bounded AI behavior
 ```
 
-### Architect Questions
+### Decision Points
 
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
 
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
+### Architect Questions and Expected Answers
+
+**Q: Why define constraints?**\
+**Expected answer:** To make AI behavior secure, compliant, predictable,
+and bounded.
+
+**Q: What should tool permissions control?**\
+**Expected answer:** Which actions the agent can invoke, against which
+systems, with which identity and approval model.
+
+**Q: Why is Foundry governance heavier?**\
+**Expected answer:** Greater control also creates greater responsibility
+for models, tools, memory, evaluation, monitoring, and scaling.
+
+**Q: Give an example of a human-approval rule.**\
+**Expected answer:** An agent may recommend a refund but an authorized
+employee must approve the actual financial action.
+
+------------------------------------------------------------------------
 
 ## Topic 7 --- Determine generative AI knowledge sources for agents built in Copilot Studio
 
 ### Concept
 
-Choose knowledge sources according to the information the agent must
-retrieve, the source's authority and freshness, authentication,
-retrieval behavior, and governance requirements.
+Copilot Studio generative AI can combine foundation-model reasoning with
+enterprise knowledge retrieval. The architect must select authoritative
+sources, control access, understand orchestration, and test retrieval
+quality.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   Evaluate authority, relevance, freshness, ownership, and permissions
+    of every source.
+-   Typical sources include SharePoint, Dataverse, OneDrive, websites,
+    files, Azure AI Search, and connectors depending on environment.
+-   Understand classic topic routing versus generative orchestration.
+-   Test both in-domain and out-of-domain questions.
+-   Knowledge retrieval must never become a permissions bypass.
+
+### Architecture Diagram
 
 ``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
+User question
+   ↓
+Copilot Studio
+   ↓
+Generative orchestration
+   ↓
+Knowledge selection
+   ↓
+Permissions / authentication
+   ↓
+Relevant retrieval
+   ↓
+Grounded context
+   ↓
+Generated answer
 ```
 
-### Architect Questions
+### Decision Points
 
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
 
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
+### Architect Questions and Expected Answers
+
+**Q: What is the purpose of a knowledge source?**\
+**Expected answer:** To provide authoritative context that grounds the
+agent's answer.
+
+**Q: What makes a source suitable?**\
+**Expected answer:** It is authoritative, relevant, sufficiently
+current, accessible to intended users, and governed.
+
+**Q: What does generative orchestration do?**\
+**Expected answer:** It can dynamically select relevant topics, tools,
+connected agents, and knowledge based on the request.
+
+**Q: What is the main security principle?**\
+**Expected answer:** Retrieval must respect identity and authorization
+boundaries.
+
+------------------------------------------------------------------------
 
 ## Topic 8 --- Determine when to build custom agents or extend Microsoft 365 Copilot
 
 ### Concept
 
-Extend Microsoft 365 Copilot when the scenario is mainly Microsoft 365
-productivity and the required customization is simple. Build a custom
-agent when specialized workflows, complex orchestration, external
-systems, autonomy, or multi-agent behavior are required.
+Extend Microsoft 365 Copilot when most required capability already
+exists in the Microsoft 365 productivity experience and customization is
+simple. Build a custom agent when specialized workflows, complex
+orchestration, external systems, autonomy, or multi-agent behavior are
+required.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   Inventory existing Copilot capability first.
+-   Identify the exact gap: knowledge, connector, action, orchestration,
+    autonomy, or external execution.
+-   Compare complexity and lifecycle cost, not just development speed.
+-   Keep productivity scenarios in the M365 experience when practical.
+-   Document the boundary where custom runtime/control becomes
+    necessary.
+
+### Architecture Diagram
 
 ``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
+Business requirement
+      ↓
+Does M365 Copilot solve most of it?
+ ├─ Yes → Extend
+ │        ├─ knowledge
+ │        ├─ connector/plugin
+ │        └─ simple behavior
+ └─ No
+      ↓
+Custom workflow / external system / autonomy?
+      ↓
+Custom agent
+      ↓
+Copilot Studio or Foundry
 ```
 
-### Architect Questions
+### Decision Points
 
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
 
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
+### Architect Questions and Expected Answers
+
+**Q: When should you extend Copilot?**\
+**Expected answer:** When the scenario is mainly Microsoft 365
+productivity and only simple customization is required.
+
+**Q: When should you build custom?**\
+**Expected answer:** When specialized workflows, complex orchestration,
+external systems, autonomy, or multi-agent behavior are required.
+
+**Q: Why not custom-build everything?**\
+**Expected answer:** Custom solutions add complexity, cost, security
+responsibility, and lifecycle overhead.
+
+**Q: What is the key decision question?**\
+**Expected answer:** Can the required business capability remain within
+the Microsoft 365 Copilot and extension model?
+
+------------------------------------------------------------------------
 
 ## Topic 9 --- Determine when custom AI models should be created
 
 ### Concept
 
-Treat custom model development as a strategic exception. First test
-prebuilt/catalog models, prompting, retrieval, and other available
-options; move to custom models only when business, model, data, cost,
-and operational fit justify it.
+Custom model development is a strategic exception. First test catalog
+models, prompting, retrieval, and other available options. Consider
+custom models when domain specificity, high accuracy, predictability,
+strict governance, or high-volume economics justify the investment.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   Use the five-fit test: business, model, data, cost, operational.
+-   Measure actual accuracy gaps instead of assuming customization is
+    better.
+-   Check prompt engineering, retrieval tuning, stronger catalog models,
+    and fine-tuning first.
+-   Custom models require curated data, evaluation, deployment
+    pipelines, monitoring, and skills.
+-   Use ROI to justify long-term engineering and operating cost.
+
+### Architecture Diagram
 
 ``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
+Requirement
+   ↓
+Catalog model
+   ↓
+Prompting + RAG + evaluation
+   ↓
+Meets target?
+ ├─ Yes → Keep existing approach
+ └─ No
+      ↓
+Business + Model + Data + Cost + Operations fit
+      ↓
+Custom model decision
 ```
 
-### Architect Questions
+### Decision Points
 
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
 
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
+### Architect Questions and Expected Answers
+
+**Q: When is a custom model justified?**\
+**Expected answer:** When existing approaches cannot meet the
+requirement and the business, data, governance, cost, and operational
+case supports customization.
+
+**Q: What should be tried first?**\
+**Expected answer:** Catalog models, prompt engineering, retrieval, and
+other available customization.
+
+**Q: What data is needed?**\
+**Expected answer:** High-quality curated domain data plus repeatable
+training, evaluation, and deployment processes.
+
+**Q: What five dimensions should be balanced?**\
+**Expected answer:** Business fit, model fit, data fit, cost fit, and
+operational fit.
+
+------------------------------------------------------------------------
 
 ## Topic 10 --- Provide guidelines for creating a prompt library
 
 ### Concept
 
-A prompt library is a governed collection of tested, reusable prompts.
-It improves consistency, efficiency, quality, and organizational
-scalability.
+A prompt library is a curated and governed collection of reusable
+prompts. Microsoft Learn emphasizes clarity, context, constraints, and
+output format, plus metadata, review, testing, versioning, and lifecycle
+management.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   Capture purpose, owner, version, update date, applicable systems,
+    risk classification, and required grounding sources.
+-   Use patterns such as instruction + context + output, few-shot
+    examples, role prompting, and multi-step prompts.
+-   Test multiple inputs, edge cases, and model versions.
+-   Review with domain experts and security/compliance where
+    appropriate.
+-   Retire prompts when business rules or models change.
+
+### Architecture Diagram
 
 ``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
+Prompt candidate
+   ↓
+Domain review
+   ↓
+Security / Responsible AI review
+   ↓
+Test + evaluate
+   ↓
+Approve
+   ↓
+Prompt library
+   ↓
+Version / monitor / retire
 ```
 
-### Architect Questions
+### Decision Points
 
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
 
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
+### Architect Questions and Expected Answers
+
+**Q: What are the four core prompt pillars?**\
+**Expected answer:** Clarity, context, constraints, and output format.
+
+**Q: What metadata belongs in the library?**\
+**Expected answer:** Purpose, owner, version, update date, systems, risk
+classification, and grounding sources.
+
+**Q: Why version prompts?**\
+**Expected answer:** Prompt behavior changes as business rules, models,
+and workflows change.
+
+**Q: What makes a prompt an enterprise asset?**\
+**Expected answer:** Ownership, governance, testing, versioning, reuse,
+and lifecycle management.
+
+------------------------------------------------------------------------
 
 ## Topic 11 --- Develop use cases for customized small language models
 
 ### Concept
 
-Customized SLMs can fit focused domain tasks where latency, cost, memory
-footprint, offline/edge operation, or specialized behavior matters. They
-are not automatically safer or more accurate than larger models.
+Customized Small Language Models can fit focused workloads where low
+latency, lower cost, small footprint, edge deployment, or specialized
+behavior matters. They are not automatically safer or more accurate than
+larger models.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   Consider manufacturing troubleshooting, focused classification,
+    compliance analysis, and edge/IoT workloads.
+-   Customization can target domain knowledge, behavior, or a specific
+    task.
+-   Use SLMs where high-volume inference makes cost and latency
+    important.
+-   Avoid an SLM when RAG over a general model already satisfies the
+    requirement.
+-   Evaluate overfitting, edge cases, safety, drift, and data-curation
+    effort.
+
+### Architecture Diagram
 
 ``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
+Focused task
+   ↓
+Curated domain data
+   ↓
+Customized SLM
+   ↓
+Safety + evaluation
+   ↓
+Business app / agent / edge device
+   ↓
+Accuracy + latency + cost + safety + drift
 ```
 
-### Architect Questions
+### Decision Points
 
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
 
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
+### Architect Questions and Expected Answers
+
+**Q: When is an SLM a strong candidate?**\
+**Expected answer:** When a specialized workload benefits from low
+latency, low cost, small footprint, edge deployment, or domain-specific
+behavior.
+
+**Q: What is a key anti-pattern?**\
+**Expected answer:** Building a custom SLM when RAG over a general model
+would be sufficient.
+
+**Q: Does an SLM automatically reduce incorrect information?**\
+**Expected answer:** No; it still requires good data, grounding,
+evaluation, and governance.
+
+**Q: What metrics matter?**\
+**Expected answer:** Task accuracy, latency, cost per 1,000 requests,
+safety incidents, and drift.
+
+------------------------------------------------------------------------
 
 ## Topic 12 --- Provide prompt engineering guidelines and techniques
 
 ### Concept
 
-Design prompts with clear tasks, context, audience, constraints,
-reference material, and expected output. Evaluate prompts against
-accuracy, clarity, consistency, safety, and business outcomes.
+Prompt engineering is deliberate instruction design that guides AI
+toward reliable, safe, business-aligned outputs. In enterprise
+solutions, prompt design affects downstream process quality and
+governance.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   Use clear, specific, actionable instructions.
+-   Provide purpose, audience, source/reference material, and
+    exclusions.
+-   Specify tables, bullets, JSON, or other output formats when needed.
+-   Use constraints to reduce unsafe or unsupported behavior.
+-   Refine prompts iteratively and measure accuracy, completeness,
+    consistency, and compliance.
+
+### Architecture Diagram
 
 ``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
+Role / purpose
+      +
+Task
+      +
+Business context
+      +
+Reference data
+      +
+Constraints
+      +
+Output format
+      +
+Validation
+      ↓
+AI output
+      ↓
+Review → refine → retest
 ```
 
-### Architect Questions
+### Decision Points
 
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
 
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
+### Architect Questions and Expected Answers
+
+**Q: What is prompt engineering?**\
+**Expected answer:** Deliberate design of instructions that guide an AI
+model toward a required business output.
+
+**Q: Why specify output format?**\
+**Expected answer:** It improves consistency and reduces downstream
+editing.
+
+**Q: Why include constraints?**\
+**Expected answer:** They keep the model within business, data, and
+compliance boundaries.
+
+**Q: How should production prompts improve?**\
+**Expected answer:** Use an iterative review, refine, retest, and KPI
+evaluation cycle.
+
+------------------------------------------------------------------------
 
 ## Topic 13 --- Identify key business user roles for AI workloads
 
 ### Concept
 
-Define accountable business and technical roles such as executive
-sponsor, AI CoE lead, AI product owner, architect, data owner,
-security/compliance, and operations so AI workloads have clear
-ownership.
+AI workloads require clear business and technical accountability.
+Microsoft Learn highlights executive sponsor, AI CoE lead, and AI
+product owner roles, supported by architecture, data, security,
+compliance, engineering, operations, and business SMEs.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   The executive sponsor provides strategic direction, funding, and
+    organizational support.
+-   The AI CoE lead coordinates strategy, governance, standards, and
+    cross-functional alignment.
+-   The product owner owns the business outcome, roadmap, budget, and
+    acceptance criteria.
+-   Assign data and knowledge ownership explicitly.
+-   Assign operational ownership before production.
+
+### Architecture Diagram
 
 ``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
+Executive Sponsor
+      ↓
+AI CoE Lead
+      ↓
+AI Product Owner
+      ↓
+Architect ─ Data ─ Security/Compliance
+      ↓
+Engineering / Operations
+      ↓
+SMEs / Users / AI Champions
+      ↓
+Business outcome
 ```
 
-### Architect Questions
+### Decision Points
 
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
 
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
+### Architect Questions and Expected Answers
+
+**Q: Who owns the business outcome?**\
+**Expected answer:** The accountable AI product owner or business owner.
+
+**Q: What does the executive sponsor provide?**\
+**Expected answer:** Strategic direction, funding, organizational
+support, and governance/risk sponsorship.
+
+**Q: What does the AI CoE lead coordinate?**\
+**Expected answer:** AI strategy, governance, standards, collaboration,
+and maturity.
+
+**Q: Why define roles early?**\
+**Expected answer:** To prevent fragmented solutions, unclear
+accountability, stalled adoption, and lifecycle gaps.
+
+------------------------------------------------------------------------
 
 ## Topic 14 --- Evaluate regional and local AI data regulation compliance requirements
 
 ### Concept
 
-Evaluate privacy, AI-specific, industry, cross-border, retention,
-transparency, human-oversight, and documentation requirements for every
-jurisdiction in scope.
+AI workloads can be affected by privacy, AI-specific, industry,
+cross-border, transparency, human-oversight, and documentation
+requirements. The architect must identify jurisdictions and map
+confirmed requirements to technical controls.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   Identify where users, data, systems, and processing occur.
+-   Classify data and determine applicable privacy/lawful-processing
+    requirements.
+-   Evaluate cross-border transfer and residency constraints.
+-   Assess AI-specific risk classification, transparency, human
+    oversight, documentation, and safety.
+-   Work with legal/privacy/security stakeholders; translate
+    requirements into architecture controls.
+
+### Architecture Diagram
 
 ``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
+Business use case
+   ↓
+Data classification
+   ↓
+Jurisdictions
+   ↓
+Applicable requirements
+   ↓
+Technical / governance controls
+ ├─ data location
+ ├─ access
+ ├─ retention
+ ├─ human oversight
+ ├─ transparency
+ └─ audit evidence
+   ↓
+Compliance readiness decision
 ```
 
-### Architect Questions
+### Decision Points
 
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
 
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
+### Architect Questions and Expected Answers
+
+**Q: Why evaluate regulation early?**\
+**Expected answer:** Regulatory requirements can change data, platform,
+hosting, access, and workflow architecture.
+
+**Q: What should be identified first?**\
+**Expected answer:** Jurisdictions, data types, processing activities,
+users, and business impact.
+
+**Q: What domains should be evaluated?**\
+**Expected answer:** Privacy, AI-specific regulation, industry
+compliance, cross-border transfer, transparency, human oversight, and
+documentation.
+
+**Q: Can one global control set always be assumed?**\
+**Expected answer:** No; regional and local requirements must be
+evaluated for the actual workload.
+
+------------------------------------------------------------------------
 
 ## Topic 15 --- Include elements in a Microsoft AI Center of Excellence
 
 ### Concept
 
-An AI CoE provides leadership, governance, standards, expert capability,
-reusable assets, skills, portfolio oversight, and operational guidance
-to scale AI responsibly.
+An AI Center of Excellence is an organizational capability that
+accelerates responsible AI adoption, standardizes practices, provides
+expertise, and governs the portfolio. It should enable teams rather than
+become a bottleneck.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   Secure executive sponsorship and a clear mandate.
+-   Assign accountable CoE leadership.
+-   Include AI strategy, data, engineering, governance, security,
+    operations, and business expertise.
+-   Maintain reusable standards, templates, reference architectures,
+    prompts, and evaluation patterns.
+-   Use portfolio oversight to reduce duplication and ungoverned
+    adoption.
+
+### Architecture Diagram
 
 ``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
+Executive leadership
+      ↓
+     AI CoE
+ ┌────┼────┬────┬────┐
+ ↓    ↓    ↓    ↓    ↓
+Strategy Data Security Governance Operations
+      ↓
+Standards + reusable assets
+      ↓
+AI portfolio
+      ↓
+Delivery + operations
 ```
 
-### Architect Questions
+### Decision Points
 
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
 
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
+### Architect Questions and Expected Answers
+
+**Q: What is the purpose of an AI CoE?**\
+**Expected answer:** To scale AI responsibly through governance,
+standards, expertise, reusable assets, and business alignment.
+
+**Q: Why is executive sponsorship important?**\
+**Expected answer:** It provides funding, strategic direction,
+authority, and organizational support.
+
+**Q: Who belongs in the multidisciplinary team?**\
+**Expected answer:** Strategy, data, AI/ML engineering, governance,
+security, operations, and business SMEs.
+
+**Q: How does the CoE reduce duplication?**\
+**Expected answer:** Through shared standards, reusable assets,
+architecture guidance, and portfolio oversight.
+
+------------------------------------------------------------------------
 
 ## Topic 16 --- Design AI solutions using multiple Dynamics 365 apps
 
 ### Concept
 
-Design for shared business context, process continuity, data
-interoperability, long-lived business objects, and governed sources when
-AI crosses Sales, Customer Service, Finance, Field Service, or other
-Dynamics workloads.
+AI across Dynamics 365 applications must preserve shared business
+context and process continuity. Architects should design around governed
+business objects, consistent schemas, integration boundaries, events,
+and persistent context.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   Identify the long-lived business object carrying context.
+-   Use harmonized Dataverse tables and consistent entity schemas where
+    applicable.
+-   Use clean integration boundaries and event-driven flows for state
+    changes.
+-   Design for users continuing work across application surfaces.
+-   Ground AI on authoritative sources to prevent cross-app drift.
+
+### Architecture Diagram
 
 ``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
+Customer / Opportunity
+       ↓
+     Sales
+       ↓
+     Order
+       ↓
+Customer Service
+       ↓
+    Finance
+       ↓
+ Field Service
+       ↓
+ Shared AI context
+       ↓
+Consistent user experience
 ```
 
-### Architect Questions
+### Decision Points
 
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
 
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
+### Architect Questions and Expected Answers
+
+**Q: What is the key requirement?**\
+**Expected answer:** Consistent and authoritative business context
+across application boundaries.
+
+**Q: Why are harmonized schemas important?**\
+**Expected answer:** They let applications and AI interpret business
+entities consistently.
+
+**Q: Why does process continuity matter?**\
+**Expected answer:** Users should continue work across applications
+without losing relevant context.
+
+**Q: What should anchor long-lived context?**\
+**Expected answer:** Governed business objects such as customer,
+opportunity, order, case, asset, or work order.
+
+------------------------------------------------------------------------
 
 ## Topic 17 --- Design user prompt training for AI solution adoption
 
 ### Concept
 
-Train different user personas on prompting, validation, responsible use,
-accessibility, and workflow integration. Adoption is a
-people-and-process change, not only a technology deployment.
+AI adoption succeeds when users know how to prompt, validate outputs,
+use AI responsibly, and integrate it into their workflow. Training
+should be persona-based and include accessibility and governance.
 
 ### Architecture Perspective
 
-Ask these questions before choosing a technology:
+The architect must translate this topic into an explicit design
+decision. The question is not only "Can the technology do it?" but also
+"What business, data, security, governance, operating, and adoption
+conditions make the design appropriate?"
 
-1.  What business outcome must improve?
-2.  What part of the process should AI perform?
-3.  What data and knowledge are required?
-4.  What platform provides the required capability with the least
-    unnecessary complexity?
-5.  What actions can the AI perform, and which actions require human
-    approval?
-6.  What security, compliance, and regional constraints apply?
-7.  How will the workload be monitored, operated, and improved?
+### Architect Pointers
 
-### Whiteboard Architecture
+-   Identify personas before designing training.
+-   Teach everyday users basic prompting, validation, limitations, and
+    responsible use.
+-   Teach AI champions advanced prompts, reusable templates, workflows,
+    and peer coaching.
+-   Teach managers how to review AI insights and monitor
+    outcomes/governance.
+-   Include accessibility and inclusive design in training.
 
-``` text
-Business Need
-    ↓
-Use Case + Success Measure
-    ↓
-AI Capability
-    ↓
-Platform / Agent Pattern
-    ↓
-Knowledge + Data + Tools
-    ↓
-Rules / Guardrails / Identity
-    ↓
-AI Response or Business Action
-    ↓
-Human / Business Process
-    ↓
-Monitoring + Improvement
-```
-
-### Architect Questions
-
-**Q: What should the architect decide first?**\
-Expected answer: The business outcome and the use case, before selecting
-the AI technology.
-
-**Q: What is the main architecture risk?**\
-Expected answer: Choosing technology before defining business, data,
-security, and operational requirements.
-
-## Topic 2 --- CAF and AI Agent Lifecycle Mapping
-
-### Whiteboard
+### Architecture Diagram
 
 ``` text
-CAF                         Agent Lifecycle
-────────────────────        ─────────────────────
-Strategy       ───────────→ Plan agents
-Plan           ───────────→ Plan agents
-Ready          ───────────→ Govern & secure
-Govern         ───────────→ Govern & secure
-Secure         ───────────→ Govern & secure
-Manage         ───────────→ Operate agents
-
-                 Build agents
-                    ↓
-              Production
-                    ↓
-              Operate + Improve
+User persona
+      ↓
+Role-specific training
+ ├─ Everyday user → basic prompting + validation
+ ├─ AI champion → advanced prompts + coaching
+ ├─ Manager → review + governance + outcomes
+ └─ Accessibility-focused user → inclusive AI features
+      ↓
+Workflow adoption
+      ↓
+Usage + outcome measurement
+      ↓
+Continuous improvement
 ```
 
-The Microsoft Learn unit maps CAF phases to the agent lifecycle and
-emphasizes landing zones, data, security, governance, standardized build
-processes, monitoring, cost controls, and operational readiness.
-citeturn2view0
-
-**Q: Why use CAF for AI?**\
-Expected answer: It provides an enterprise adoption and operating
-backbone for strategy, readiness, governance, security, and management.
-
-**Q: What should come out of the strategy phase?**\
-Expected answer: Business outcomes, prioritized use cases, technology
-choices, data and Responsible AI direction, and an agent technology
-plan.
-
-------------------------------------------------------------------------
-
-## Topic 3 --- Agent Technology Decision
-
-### Decision Tree
-
-``` text
-Does an existing SaaS / prebuilt agent meet the requirement?
-          │
-      Yes ├────────→ Use it
-          │
-          No
-          ↓
-Can Copilot Studio meet the workflow with low-code customization?
-          │
-      Yes ├────────→ Build low-code agent
-          │
-          No
-          ↓
-Is complex orchestration / custom logic / deep integration required?
-          │
-      Yes ├────────→ Consider Microsoft Foundry / pro-code
-          │
-          ↓
-Do compliance or isolation requirements require full model/runtime control?
-          └────────→ Consider custom hosting / containers
-```
-
-Microsoft Learn describes SaaS, low-code, pro-code, and controlled
-hosting options and recommends starting with the simplest approach that
-meets functional requirements. citeturn2view1
-
-------------------------------------------------------------------------
-
-## Topic 4 --- Single-Agent vs Multi-Agent
-
-### Decision
-
-``` text
-                    Start
-                      ↓
-              Single agent works?
-                /           \
-              Yes            No
-               ↓              ↓
-          Keep simple    Identify complexity
-                              ↓
-        ┌─────────────────────┼────────────────────┐
-        ↓                     ↓                    ↓
- Security boundary     Team ownership       Multi-step dependencies
-        ↓                     ↓                    ↓
-        └─────────────────────┼────────────────────┘
-                              ↓
-                       Multi-agent design
-```
-
-Multi-agent architecture adds coordination, latency, cost, and security
-surface. Use it when separation of concerns, security boundaries,
-independent ownership, or multi-workstream dependencies justify the
-complexity. Microsoft Learn also describes sequential, concurrent,
-group-chat, handoff, and Magentic orchestration patterns.
-citeturn2view2
-
-**Q: What is the default starting point?**\
-Expected answer: Start with a single agent and add agents only when
-evidence shows that decomposition is useful.
-
-------------------------------------------------------------------------
-
-## Topic 5 --- Prebuilt Microsoft 365 Copilot Agents
-
-Prebuilt agents are useful for repetitive, high-frequency,
-knowledge-heavy work such as summarization, knowledge retrieval,
-drafting, policy guidance, and routine workflows. Use case selection
-should consider task frequency, knowledge intensity, pain points, and
-measurable business KPIs. citeturn4view0
-
-### Whiteboard
-
-``` text
-Microsoft 365 Work
- Outlook / Teams / Word / SharePoint
-              ↓
-     Prebuilt Copilot Agent
-              ↓
-     Knowledge + Context
-              ↓
-       User Productivity
-```
-
-**Q: When should an architect consider a prebuilt agent first?**\
-Expected answer: When existing capabilities already satisfy the business
-requirement with little customization.
-
-------------------------------------------------------------------------
-
-## Topic 6 --- Rules and Constraints
-
-### Constraint Layers
-
-``` text
-AI Component
-   │
-   ├── Behavior rules
-   ├── Data boundaries
-   ├── Tool/action permissions
-   ├── Human approval rules
-   ├── Identity/access rules
-   ├── Environment/network rules
-   ├── Evaluation requirements
-   └── Operational limits
-```
-
-Copilot Studio is positioned for governed low-code task/retrieval
-scenarios, while Foundry supports higher-complexity orchestration and
-requires stronger explicit governance around tools, models, memory,
-evaluation, and operations. citeturn4view1
-
-**Q: Why define rules before production?**\
-Expected answer: To make AI behavior predictable, secure, compliant, and
-bounded.
-
-------------------------------------------------------------------------
-
-## Topic 7 --- Knowledge Sources in Copilot Studio
-
-### Knowledge Decision
-
-``` text
-Business Question
-      ↓
-What information is required?
-      ↓
-Authoritative source
-      ↓
-SharePoint / Dataverse / Files / Website /
-Azure AI Search / Connector
-      ↓
-Authentication + Permissions
-      ↓
-Retrieval
-      ↓
-Grounded Answer
-```
-
-Copilot Studio supports enterprise knowledge sources and generative
-orchestration that can combine topics, tools, connected agents, and
-knowledge. Current Microsoft documentation lists sources such as
-SharePoint, uploaded files, Dataverse, Azure AI Search, OneDrive, and
-connectors, depending on the environment. citeturn3view2turn0search2
-
-**Q: What makes a knowledge source architecturally suitable?**\
-Expected answer: It is authoritative, relevant, sufficiently current,
-accessible to the intended users, and governed.
-
-------------------------------------------------------------------------
-
-## Topic 8 --- Extend Microsoft 365 Copilot or Build Custom?
-
-  Requirement                                  Typical direction
-  -------------------------------------------- ------------------------------
-  Microsoft 365 productivity workflow          Extend Microsoft 365 Copilot
-  Organization-specific knowledge              Extend when simple
-  Simple connector/plugin requirement          Extend
-  Complex multi-step workflow                  Custom agent
-  External system integration                  Custom agent
-  Multi-agent collaboration                    Custom agent
-  Operational autonomy outside Microsoft 365   Custom agent
-
-Microsoft Learn describes extension when core Copilot capabilities
-already fit the workflow and custom agents when specialized workflows,
-complex orchestration, external systems, autonomy, or multi-agent
-behavior are required. citeturn4view3
-
-------------------------------------------------------------------------
-
-## Topic 9 --- Custom AI Models
-
-### Decision
-
-``` text
-Prebuilt / Catalog Model
-        ↓
-Prompting + Retrieval + Evaluation
-        ↓
-Does it meet the requirement?
-      /       \
-    Yes        No
-     ↓          ↓
-Use it     Investigate customization
-                ↓
-       Business + Model + Data
-       + Cost + Operations fit
-                ↓
-          Custom model
-```
-
-Microsoft Learn advises considering custom models only when existing
-models cannot meet accuracy, domain, compliance, or predictability needs
-and ROI supports the additional engineering and operational cost.
-citeturn4view4
-
-**Q: What should happen before custom model development?**\
-Expected answer: Evaluate prebuilt/catalog models, prompting, retrieval,
-and other available approaches.
-
-------------------------------------------------------------------------
-
-## Topic 10 --- Prompt Library
-
-A prompt library is a governed collection of reusable and tested
-prompts. It supports consistency, quality, efficiency, governance, and
-scale. citeturn3view5
-
-### Whiteboard
-
-``` text
-Prompt Candidate
-      ↓
-Test
-      ↓
-Evaluate
-      ↓
-Approve
-      ↓
-Publish to Library
-      ↓
-Version + Owner + Scope
-      ↓
-Monitor + Improve
-```
-
-**Q: What turns a prompt into an enterprise asset?**\
-Expected answer: Testing, ownership, governance, versioning, reuse, and
-measurable quality.
-
-------------------------------------------------------------------------
-
-## Topic 11 --- Customized Small Language Models
-
-Customized SLMs are useful when focused domain behavior, low latency,
-lower inference cost, smaller memory footprint, edge/offline operation,
-or task specialization matters. They are not automatically safer or more
-accurate than larger models. citeturn4view5
-
-### Architecture
-
-``` text
-Focused Business Task
-        ↓
-Curated Domain Data
-        ↓
-Customized SLM
-        ↓
-Low-latency Inference
-        ↓
-Business Application / Device
-```
-
-**Q: Why choose an SLM?**\
-Expected answer: Because the workload benefits from focused capability,
-cost, latency, footprint, or deployment constraints.
-
-------------------------------------------------------------------------
-
-## Topic 12 --- Prompt Engineering
-
-### Enterprise Prompt Pattern
-
-``` text
-Role / Context
-      +
-Task
-      +
-Reference Data
-      +
-Constraints
-      +
-Expected Output
-      +
-Validation Criteria
-```
-
-Microsoft Learn emphasizes clarity, context, constraints, accuracy,
-consistency, governance, and business alignment. citeturn4view6
-
-**Q: Why is context important?**\
-Expected answer: It tells the model the business purpose, audience,
-source material, and boundaries needed for a useful response.
-
-------------------------------------------------------------------------
-
-## Topic 13 --- Business User Roles
-
-### Operating Model
-
-``` text
-Executive Sponsor
-       ↓
-AI CoE Lead
-       ↓
-AI Product Owner ─── Solution Architect
-       ↓                    ↓
-Business SMEs         Data / Security / Compliance
-       ↓                    ↓
-Users / Champions ─── AI Platform / Operations
-```
-
-Microsoft Learn identifies roles including executive sponsor, AI CoE
-lead, and AI product owner, with responsibilities covering strategy,
-governance, business outcomes, roadmap, budget, and lifecycle ownership.
-citeturn4view7
-
-**Q: Who owns the business outcome?**\
-Expected answer: The AI product owner or accountable business owner, not
-the AI model itself.
-
-------------------------------------------------------------------------
-
-## Topic 14 --- Regional and Local AI Regulation
-
-### Compliance Architecture
-
-``` text
-Business Use Case
-      ↓
-Data Classification
-      ↓
-Jurisdictions
-      ↓
-Applicable Regulations
-      ↓
-Platform / Data Location / Access Controls
-      ↓
-Retention + Privacy + Human Oversight
-      ↓
-Evidence + Audit
-```
-
-Relevant domains include data privacy, AI-specific regulation, industry
-requirements, cross-border transfer, responsible AI, retention,
-transparency, and human oversight. Microsoft Learn specifically
-references examples including the EU AI Act, India DPDP Act, CCPA/CPRA,
-LGPD, and other regional frameworks. citeturn4view8
-
-**Q: Should an architect assume one global AI compliance model is
-enough?**\
-Expected answer: No; requirements must be evaluated for the
-jurisdictions and data involved.
-
-------------------------------------------------------------------------
-
-## Topic 15 --- AI Center of Excellence
-
-### AI CoE Architecture
-
-``` text
-Executive Leadership
-        ↓
-AI CoE
- ┌──────┼────────┬────────┐
- ↓      ↓        ↓        ↓
-Strategy Governance Skills Reuse
- ↓      ↓        ↓        ↓
-Portfolio → Standards → Delivery → Operations
-```
-
-An AI CoE provides leadership, governance, standardized practices,
-cross-functional alignment, expert support, and a mechanism to reduce
-duplication and ungoverned adoption. citeturn4view9
-
-**Q: What is the main purpose of an AI CoE?**\
-Expected answer: To help the organization scale AI responsibly and
-consistently while aligning technology with business value.
-
-------------------------------------------------------------------------
-
-## Topic 16 --- Multiple Dynamics 365 Apps
-
-### Cross-App Architecture
-
-``` text
-Customer / Product / Case / Order
-              ↓
-        Shared Business Context
-              ↓
- ┌────────────┼────────────┐
- ↓            ↓            ↓
-Sales     Customer Service  Finance
- ↓            ↓            ↓
-        Field Service
-              ↓
-        AI / Agents
-              ↓
-      Consistent Process
-```
-
-Cross-app AI requires shared business context, process continuity,
-harmonized data, clean integration boundaries, and authoritative
-sources. Microsoft Learn highlights Sales → Customer Service → Finance →
-Field Service as an example of a process that may span applications.
-citeturn4view10
-
-**Q: What is the biggest architectural concern?**\
-Expected answer: Maintaining consistent business context and governed
-data across application boundaries.
-
-------------------------------------------------------------------------
-
-## Topic 17 --- User Prompt Training and Adoption
-
-### Adoption Architecture
-
-``` text
-User Persona
-    ↓
-Role-specific AI Training
-    ↓
-Prompt Skills
-    ↓
-Output Validation
-    ↓
-Responsible Use
-    ↓
-Workflow Integration
-    ↓
-Usage + Outcome Measurement
-    ↓
-Continuous Improvement
-```
-
-Microsoft Learn emphasizes that adoption requires skilling,
-accessibility, governance, prompt fluency, validation, and responsible
-use---not simply deploying technology. citeturn4view11
-
-**Q: Should every user receive the same AI training?**\
-Expected answer: No; training should reflect persona, workflow,
+### Decision Points
+
+-   Identify the business requirement and measurable outcome.
+-   Identify the data, knowledge, tools, and integrations required.
+-   Identify security, compliance, ownership, and human-approval
+    boundaries.
+-   Select the simplest Microsoft capability that satisfies the
+    requirement.
+-   Define evaluation and operational measures before production.
+
+### Architect Questions and Expected Answers
+
+**Q: Why is prompt training part of adoption?**\
+**Expected answer:** Because user behavior directly affects quality,
+productivity, responsible use, and business outcomes.
+
+**Q: Should every user receive the same training?**\
+**Expected answer:** No; training should match persona, workflow,
 responsibility, and AI maturity.
+
+**Q: What should managers learn?**\
+**Expected answer:** Output review, governance boundaries, usage
+monitoring, and outcome measurement.
+
+**Q: What should AI champions learn?**\
+**Expected answer:** Advanced prompting, reusable templates, multi-step
+workflows, and peer coaching.
 
 ------------------------------------------------------------------------
 
 # Module 3 --- Final Architect Whiteboard
 
 ``` text
-                     ENTERPRISE AI STRATEGY
-                              │
-             ┌────────────────┴────────────────┐
-             ↓                                 ↓
-       Business Outcomes                 AI Use Cases
-             │                                 │
-             └──────────────┬──────────────────┘
-                            ↓
-                   Adoption Strategy
-                            ↓
-             ┌──────────────┼──────────────┐
-             ↓              ↓              ↓
-        Prebuilt SaaS   Copilot Studio   Foundry / Custom
-             │              │              │
-             └──────────────┼──────────────┘
-                            ↓
-                    Data + Knowledge
-                            ↓
-                 Rules + Guardrails
-                            ↓
-            Models + Prompts + Tools
-                            ↓
-             Security + Compliance
-                            ↓
-                  AI CoE + Roles
-                            ↓
-              Dynamics / Business Apps
-                            ↓
-                  User Adoption
-                            ↓
-                 Operate + Measure
-                            ↓
-                    Business Value
+Business Outcomes
+      ↓
+AI Use Cases
+      ↓
+CAF / AI Adoption Plan
+      ↓
+Agent Technology Decision
+      ↓
+Prebuilt / Copilot Studio / Foundry / Custom
+      ↓
+Data + Knowledge
+      ↓
+Rules + Guardrails
+      ↓
+Prompts + Models + Tools
+      ↓
+Security + Compliance
+      ↓
+AI CoE + Roles
+      ↓
+Dynamics / Business Apps
+      ↓
+User Adoption
+      ↓
+Operate + Measure
+      ↓
+Business Value
 ```
 
 ## Final Architect Questions
 
 **Q: What is the overall strategy sequence?**\
-Expected answer: Business outcomes → use cases → adoption → platform →
+**Expected answer:** Business outcome → use case → adoption → platform →
 data → guardrails → operations → adoption measurement.
 
 **Q: When should an architect choose a prebuilt solution?**\
-Expected answer: When it already meets the business requirement with
-acceptable customization and governance.
+**Expected answer:** When it already meets the business requirement with
+acceptable customization, governance, and operational fit.
 
 **Q: When is multi-agent architecture justified?**\
-Expected answer: When security boundaries, independent ownership,
-modular specialization, or multi-workstream dependencies justify the
-added complexity.
+**Expected answer:** When security boundaries, independent ownership,
+modular specialization, or dependent workstreams justify the added
+complexity.
 
-**Q: What should be governed centrally?**\
-Expected answer: AI portfolio, standards, security, data access,
-responsible AI, evaluation, prompts, roles, compliance, and operational
-practices.
+**Q: When should custom models be considered?**\
+**Expected answer:** When existing approaches cannot meet the
+requirement and business, data, cost, governance, and operational fit
+justify customization.
+
+**Q: What makes a prompt an enterprise asset?**\
+**Expected answer:** Ownership, versioning, risk classification,
+grounding requirements, testing, approval, and lifecycle management.
+
+**Q: What makes an AI CoE effective?**\
+**Expected answer:** Executive sponsorship, accountable leadership,
+multidisciplinary expertise, governance, standards, reusable assets,
+portfolio oversight, and operational support.
 
 **Q: What makes an AI strategy enterprise-ready?**\
-Expected answer: Clear business value, appropriate technology choices,
+**Expected answer:** Clear business value, appropriate technology,
 governed data, explicit constraints, accountable roles, compliance,
 operations, and user adoption.
 
-## Source Alignment
+## Microsoft Learn Alignment
 
-Primary source: Microsoft Learn, **Design overall AI strategy for
-business solutions**. The module currently lists 19 units and learning
-objectives covering CAF alignment, enterprise agent operating model,
-Microsoft platform selection, and transition from proof of concept to
-production. citeturn1search0
+The current Microsoft Learn module contains 19 units: 17 learning topics
+plus assessment and summary. Its stated objectives include mapping CAF
+AI adoption phases to the AI agent lifecycle, designing an
+enterprise-ready operating model, selecting Microsoft AI platforms, and
+transitioning AI workloads from proof of concept to production.
+citeturn0search0
+
+Primary module:\
+https://learn.microsoft.com/en-us/training/modules/design-overall-ai-strategy-business-solutions/
