@@ -1,0 +1,3 @@
+Title,Customer,Product,Issue,Priority,Status
+X200 Overheating - Fabrikam,Fabrikam,X200,Machine overheats after three hours,High,New
+X200 Startup Issue,Northwind,X200,Device does not start after restart,Medium,In Progress

@@ -1,0 +1,7 @@
+Column,Type,Allowed Values / Example
+Title,Single line of text,Case title
+Customer,Single line of text,Fabrikam
+Product,Single line of text,X200
+Issue,Multiple lines of text,X200 is overheating
+Priority,Choice,Low; Medium; High
+Status,Choice,New; In Progress; Closed
