@@ -1,6 +1,6 @@
 # Module 4 — Evaluate Costs and Benefits of AI-Powered Business Solutions
 
-## 4-Hour AB-100 Study Guide
+## AB-100 Module 4
 
 **Microsoft Learn module:** Evaluate Costs and Benefits of AI-Powered Business Solutions
 
@@ -9,8 +9,6 @@
 ---
 
 # 1. Introduction
-
-## Easy-language concept
 
 When a business asks for an AI solution, the architect should not immediately start building it.
 
@@ -26,7 +24,6 @@ First ask:
 - Can we extend an existing Microsoft capability?
 - Can we use different AI models to control cost and performance?
 
-The purpose of this module is to connect **business economics to technical architecture**.
 
 ## Architecture
 
@@ -60,13 +57,11 @@ The purpose of this module is to connect **business economics to technical archi
             MEASURE ACTUAL VALUE
 ```
 
-## Architect perspective
-
 The architecture is not successful simply because the AI works.
 
 It must also make economic sense.
 
-## Architect questions
+## Architecture Questions
 
 - What business KPI improves?
 - What is today's baseline?
@@ -74,15 +69,13 @@ It must also make economic sense.
 - What will it cost after deployment?
 - How will we measure actual ROI?
 
-## Key takeaway
+## Key Takeaway
 
 > **AI architecture must be justified by measurable business value, not technology capability alone.**
 
 ---
 
 # 2. ROI Criteria for AI-Powered Solutions
-
-## Easy-language concept
 
 **ROI means Return on Investment.**
 
@@ -161,8 +154,6 @@ Examples include:
 
 # 3. TCO — Total Cost of Ownership
 
-## Easy-language concept
-
 ROI tells you about **value**.
 
 TCO tells you about **the complete cost of owning and operating the solution**.
@@ -227,7 +218,7 @@ Cost Saving  Risk      Change Mgmt  Retirement
        Payback        NPV      ROI Ratio
 ```
 
-## Architect questions
+## Architecture Questions
 
 1. What business outcome are we measuring?
 2. What is today's baseline?
@@ -236,15 +227,13 @@ Cost Saving  Risk      Change Mgmt  Retirement
 5. What costs continue after go-live?
 6. What costs occur when the solution is replaced?
 
-## Key takeaway
+## Key Takeaway
 
 > **Never calculate AI ROI using only license or model cost.**
 
 ---
 
 # 4. Create ROI Analysis for a Proposed AI Solution
-
-## Easy-language concept
 
 Start with the business process and establish a baseline.
 
@@ -350,7 +339,6 @@ What is the return when expressed on an annual basis?
 
 # 5. Build vs Buy vs Extend
 
-This is one of the most important architecture decisions in this module.
 
 There are three primary approaches:
 
@@ -482,7 +470,6 @@ You use an existing capability and add what the organization needs.
                        EXTEND          BUILD
 ```
 
-This is a decision framework, not an absolute rule.
 
 Consider:
 
@@ -532,8 +519,6 @@ Network          Governance        Indexing
 ---
 
 # 9. Model Router
-
-## Easy-language concept
 
 A model router helps an application choose an appropriate AI model for each request.
 
@@ -738,7 +723,6 @@ Experimental Model
 
 # 14. Model Router — Architect View
 
-The key architectural question is:
 
 > Does dynamic model selection improve the workload's cost, performance, and quality tradeoff without violating business requirements?
 
@@ -787,7 +771,6 @@ If cost decreases but quality falls below the business requirement, the architec
 
 # 15. Putting the Whole Module Together
 
-This is the main architecture to remember for Module 4:
 
 ```text
                  BUSINESS PROCESS
@@ -841,11 +824,11 @@ This is the main architecture to remember for Module 4:
 
 ---
 
-# 16. Four-Hour Study Plan
+# 16. Study Plan
 
 ## Hour 1 — ROI and TCO
 
-Focus on:
+Topics:
 
 ```text
 ROI
@@ -896,8 +879,6 @@ You should be able to explain this without notes.
 
 ## Hour 3 — Build vs Buy vs Extend
 
-Focus on reasoning rather than memorizing only the three words.
-
 ```text
 Unique + strategic + control
              ↓
@@ -912,7 +893,7 @@ Existing platform + customization
            EXTEND
 ```
 
-Always bring the decision back to:
+Decision criteria:
 
 ```text
 TCO
@@ -945,7 +926,7 @@ Best-suited model
 
 10 million simple classifications.
 
-Think:
+Decision:
 
 ```text
 Simple task → smaller/cheaper model
@@ -955,7 +936,7 @@ Simple task → smaller/cheaper model
 
 Complex reasoning with high business impact.
 
-Think:
+Decision:
 
 ```text
 Complex/high-quality requirement → stronger model
@@ -965,7 +946,7 @@ Complex/high-quality requirement → stronger model
 
 Organization wants one application endpoint but multiple models.
 
-Think:
+Decision:
 
 ```text
 Model Router
@@ -975,13 +956,13 @@ Model Router
 
 Organization needs deterministic use of exactly one model.
 
-Think carefully about direct model deployment rather than dynamic routing.
+Consider direct model deployment rather than dynamic routing.
 
 ---
 
-# 17. AB-100 Mental Model
+# 17. AB-100 Architecture Mental Model
 
-If you remember only one architecture, remember this:
+### Core Architecture
 
 ```text
                 SHOULD WE DO IT?
@@ -1024,7 +1005,7 @@ If you remember only one architecture, remember this:
 | **Build / Buy / Extend** | What implementation approach gives the required value with acceptable cost, risk, and time? |
 | **Model Router** | How can different requests use appropriate models while balancing quality, cost, latency, and policy? |
 
-## Final takeaway
+## Module Summary
 
 Module 4 is fundamentally about **making AI architecture economically defensible**.
 
