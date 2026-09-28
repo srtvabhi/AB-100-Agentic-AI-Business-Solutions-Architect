@@ -1,28 +1,38 @@
 # AB-100 Module 2 --- Hands-On Lab Guide
 
-## Lab Overview
+## Lab Platform Map
 
-These three labs use different Microsoft platforms deliberately.
+These labs deliberately use the Microsoft Copilot experience that best
+matches the architecture concept being demonstrated.
 
   -----------------------------------------------------------------------
-  Lab               Module 2 concept  Platform          Architect skill
+  Lab               Platform          Specific Copilot  Main architect
+                                      experience        skill
   ----------------- ----------------- ----------------- -----------------
-  Lab 1 --- Choose  Task automation,  Microsoft 365     Identify the
-  the Right AI      data analytics,   Copilot + Copilot right AI approach
-  Approach          decision support  Chat              
+  Lab 1 --- Choose  Microsoft 365     **Microsoft 365   Identify task
+  the Right AI                        Copilot Chat**    automation, data
+  Approach                            for text-based    analytics, and
+                                      assistance and    decision support
+                                      **Copilot in      
+                                      Excel** for       
+                                      structured data   
+                                      analysis          
 
-  Lab 2 --- Fix AI  Accuracy,         Microsoft Copilot Diagnose and
-  Data Quality and  relevance,        Studio            improve AI
-  Grounding         timeliness,                         grounding
-                    cleanliness,                        
-                    availability,                       
-                    grounding                           
+  Lab 2 --- Fix AI  Microsoft Copilot **Copilot Studio  Diagnose
+  Data Quality and  Studio            custom agent**    grounding and
+  Grounding                           with uploaded     data-quality
+                                      knowledge files   problems
 
-  Lab 3 --- Build   Data sources,     Microsoft Copilot Design an
-  an AI-Ready Data  security, RAG,    Studio +          AI-ready data
-  Architecture      knowledge +       SharePoint        architecture
-                    actions                             
+  Lab 3 --- Build   Microsoft Copilot **Copilot Studio  Design knowledge,
+  an AI-Ready Data  Studio +          custom agent**    retrieval,
+  Architecture      SharePoint        with SharePoint   permissions, and
+                                      knowledge and a   actions
+                                      SharePoint action 
   -----------------------------------------------------------------------
+
+> **Important:** Microsoft 365 Copilot and Microsoft Copilot Studio are
+> different experiences. Lab 1 uses Microsoft 365 Copilot. Labs 2 and 3
+> use Copilot Studio.
 
 ------------------------------------------------------------------------
 
@@ -30,7 +40,19 @@ These three labs use different Microsoft platforms deliberately.
 
 ## Platform
 
-**Microsoft 365 Copilot Chat + Microsoft 365 Copilot**
+### Part 1 --- Customer Email
+
+**Microsoft 365 Copilot Chat**
+
+Use this for summarization and AI-assisted productivity.
+
+### Parts 2 and 3 --- Business Data
+
+**Copilot in Excel**
+
+Use this for analysis of the supplied Excel workbooks. Copilot in Excel
+can surface summaries, trends, outliers, charts, and PivotTables from
+workbook data. citeturn1search6turn1search8
 
 ## Objective
 
@@ -54,22 +76,24 @@ requirement.
 
 ------------------------------------------------------------------------
 
-## Part 1 --- Task Automation
+# Part 1 --- Task Automation
 
-### Step 1 --- Open Microsoft 365 Copilot Chat
+## Step 1 --- Open Microsoft 365 Copilot Chat
 
-Open Microsoft 365 Copilot Chat and sign in with your organizational
+Open **Microsoft 365 Copilot Chat** and sign in with your organizational
 account.
 
-### Step 2 --- Use the sample customer email
+> **Platform:** Microsoft 365 Copilot Chat
+
+## Step 2 --- Use the sample customer email
 
 Open:
 
 `Lab_1_Customer_Email_X200.txt`
 
-Use the content as the input to Copilot.
+Copy the email content into Microsoft 365 Copilot Chat.
 
-### Step 3 --- Ask Copilot
+## Step 3 --- Ask Copilot
 
 ``` text
 Summarize this customer email for a support case.
@@ -82,22 +106,21 @@ Include:
 - Recommended next step
 ```
 
-### Step 4 --- Review the result
+## Step 4 --- Review the result
 
 Ask:
 
 > What work did AI perform?
 
-Expected answer:
+**Expected answer:** A repetitive information-processing task was
+automated.
 
-> A repetitive information-processing task was automated.
-
-### Architecture
+## Architecture
 
 ``` text
 Customer Email
       ↓
-Microsoft 365 Copilot
+Microsoft 365 Copilot Chat
       ↓
 Understand Information
       ↓
@@ -108,13 +131,20 @@ Employee Review
 Support Case
 ```
 
-### Architect Decision
+## Architect Decision
 
 **Task automation / AI-assisted productivity**
 
 ------------------------------------------------------------------------
 
 # Part 2 --- Data Analytics
+
+## Platform
+
+**Copilot in Excel**
+
+> Do not use Microsoft 365 Copilot Chat for this step. Open the workbook
+> in Excel and use the Copilot experience inside Excel.
 
 ## Step 1 --- Open the sample support data
 
@@ -124,7 +154,14 @@ Open:
 
 The workbook contains sample monthly customer-service data.
 
-## Step 2 --- Ask Copilot
+## Step 2 --- Open Copilot in Excel
+
+Open the **Copilot** experience in Excel.
+
+If Copilot is not available in Excel, use an environment where Copilot
+in Excel is enabled for the training account.
+
+## Step 3 --- Ask Copilot
 
 ``` text
 Analyze this customer-service data.
@@ -135,34 +172,33 @@ Identify:
 3. What trends should a customer-service manager investigate?
 ```
 
-## Step 3 --- Ask a follow-up
+## Step 4 --- Ask a follow-up
 
 ``` text
 What additional business data would you need before
 making a decision based on these trends?
 ```
 
-Expected discussion:
+**Expected discussion:** AI analysis is only as useful as the underlying
+business data.
 
-> AI analysis is only as useful as the underlying business data.
-
-### Architecture
+## Architecture
 
 ``` text
 Business Question
        ↓
-Microsoft 365 Copilot
+Copilot in Excel
        ↓
-Business Data
+Customer-Service Data
        ↓
-Analysis
+Data Analysis
        ↓
-Trends / Patterns
+Trends / Patterns / Insights
        ↓
 Manager
 ```
 
-### Architect Decision
+## Architect Decision
 
 **Data analytics**
 
@@ -170,13 +206,25 @@ Manager
 
 # Part 3 --- Decision Support
 
-## Step 1 --- Open the sample customer-risk data
+## Platform
+
+**Copilot in Excel**
+
+This keeps the exercise focused on structured business data while
+demonstrating the difference between **analysis** and
+**decision-making**.
+
+## Step 1 --- Open the customer-risk data
 
 Open:
 
 `Lab_1_Customer_Risk_Data.xlsx`
 
-## Step 2 --- Ask Copilot
+## Step 2 --- Open Copilot in Excel
+
+Open the **Copilot** experience in Excel.
+
+## Step 3 --- Ask Copilot
 
 ``` text
 Review this customer-service information.
@@ -189,26 +237,24 @@ For each customer:
 - Do not make the final business decision.
 ```
 
-## Step 3 --- Discuss the result
+## Step 4 --- Discuss the result
 
 Ask:
 
 > Should the AI automatically decide which customer receives special
 > treatment?
 
-Expected answer:
+**Expected answer:** Not necessarily. The architect should determine the
+appropriate level of human review based on business impact and risk.
 
-> Not necessarily. The architect should determine the appropriate level
-> of human review based on business impact and risk.
-
-### Architecture
+## Architecture
 
 ``` text
 Customer Data
       +
 Support History
       ↓
-Microsoft 365 Copilot
+Copilot in Excel
       ↓
 Analysis
       ↓
@@ -219,7 +265,7 @@ Manager
 Human Decision
 ```
 
-### Lab 1 Takeaway
+## Lab 1 Takeaway
 
 ``` text
 Business Requirement
@@ -231,8 +277,9 @@ What does AI need to do?
 Automate     Analyze      Support
 Tasks        Data         Decisions
 ↓            ↓            ↓
-AI           AI           AI
-Assistance   Analytics    Recommendation
+Microsoft    Copilot      Copilot
+365 Copilot  in Excel     in Excel
+Chat
 ```
 
 ------------------------------------------------------------------------
@@ -242,6 +289,14 @@ Assistance   Analytics    Recommendation
 ## Platform
 
 **Microsoft Copilot Studio**
+
+### Specific experience
+
+**Copilot Studio custom agent with uploaded knowledge files**
+
+Copilot Studio supports adding uploaded files as agent knowledge
+sources. Knowledge sources are used to ground agent responses.
+citeturn0search2turn0search7
 
 ## Objective
 
@@ -272,31 +327,16 @@ But the current Contoso policy says:
 
 ------------------------------------------------------------------------
 
-# Part 1 --- Prepare the Knowledge Sources
+# Part 1 --- Create the Agent
 
-Use these files from the lab artifact pack:
+## Step 1 --- Open Copilot Studio
 
--   `Lab_2_Warranty-final.docx`
--   `Lab_2_Warranty_Policy_2026.docx`
+Open **Microsoft Copilot Studio**.
 
-The old document contains:
+> **Platform:** Microsoft Copilot Studio --- not Microsoft 365 Copilot
+> Chat.
 
-``` text
-Warranty period: 12 months
-```
-
-The current approved document contains:
-
-``` text
-Warranty period: 24 months
-Status: Approved
-Owner: Legal
-Effective Date: 2026
-```
-
-## Step 1 --- Create the Agent
-
-Open Microsoft Copilot Studio.
+## Step 2 --- Create a custom agent
 
 Create:
 
@@ -312,15 +352,28 @@ Help Contoso customer-service employees answer questions
 about product warranties and support policies.
 ```
 
-## Step 2 --- Add the old warranty document
+------------------------------------------------------------------------
 
-Add:
+# Part 2 --- Add the Legacy Knowledge Source
+
+Use:
 
 `Lab_2_Warranty-final.docx`
 
-as a knowledge source.
+This document intentionally contains the old information:
 
-## Step 3 --- Test
+``` text
+Warranty period: 12 months
+```
+
+## Step 1 --- Add the file as knowledge
+
+In the agent, open **Knowledge** and add the uploaded file.
+
+Copilot Studio supports adding files as knowledge sources for an agent.
+citeturn0search2
+
+## Step 2 --- Test the agent
 
 Ask:
 
@@ -328,49 +381,51 @@ Ask:
 What is the warranty period for the X200?
 ```
 
-Observe whether the agent retrieves the old 12-month information.
+Expected result:
+
+``` text
+12 months
+```
+
+This creates the starting problem for the lab.
 
 ------------------------------------------------------------------------
 
-# Part 2 --- Diagnose the Problem
+# Part 3 --- Diagnose the Problem
 
 Evaluate the five data-quality dimensions.
 
   -----------------------------------------------------------------------
   Dimension                           Finding
   ----------------------------------- -----------------------------------
-  Accuracy                            Old document contains
-                                      incorrect/currently invalid
-                                      information
+  Accuracy                            The legacy document contains
+                                      outdated information
 
-  Relevance                           Warranty document is relevant
+  Relevance                           The warranty document is relevant
 
-  Timeliness                          Document is outdated
+  Timeliness                          The document is outdated
 
-  Cleanliness                         Multiple versions create confusion
+  Cleanliness                         Multiple versions can create
+                                      confusion
 
-  Availability                        Current policy is not correctly
-                                      retrieved
+  Availability                        The current policy is not part of
+                                      the current retrieval set
   -----------------------------------------------------------------------
 
 Ask:
 
 > Is the AI model necessarily the problem?
 
-Expected answer:
-
-> No. The grounding data or retrieval process may be the problem.
+**Expected answer:** No. The grounding data or retrieval process may be
+the problem.
 
 ------------------------------------------------------------------------
 
-# Part 3 --- Correct the Knowledge
+# Part 4 --- Correct the Knowledge
 
-Add:
+Use:
 
 `Lab_2_Warranty_Policy_2026.docx`
-
-Remove or exclude the outdated source according to the organization's
-information-management process.
 
 The approved document contains:
 
@@ -383,9 +438,24 @@ Effective Date: 2026
 Warranty Period: 24 months
 ```
 
+## Step 1 --- Remove the legacy source
+
+Remove the old `Lab_2_Warranty-final.docx` knowledge source from the
+agent.
+
+## Step 2 --- Add the approved source
+
+Add:
+
+`Lab_2_Warranty_Policy_2026.docx`
+
+as the knowledge source.
+
+This gives the agent a controlled, current source for the scenario.
+
 ------------------------------------------------------------------------
 
-# Part 4 --- Test Again
+# Part 5 --- Test Again
 
 Ask:
 
@@ -399,7 +469,7 @@ Expected result:
 24 months
 ```
 
-### Validation Architecture
+## Validation Architecture
 
 ``` text
 User Question
@@ -415,7 +485,7 @@ Relevant Context
 AI Response
 ```
 
-### Architect Takeaway
+## Architect Takeaway
 
 > Changing the prompt is not the real solution. Fixing the business
 > knowledge and retrieval path is the architectural solution.
@@ -428,6 +498,19 @@ AI Response
 
 **Microsoft Copilot Studio + SharePoint**
 
+### Specific experience
+
+**Copilot Studio custom agent with SharePoint knowledge and a SharePoint
+action**
+
+Copilot Studio supports SharePoint as a knowledge source and respects
+the signed-in user's SharePoint permissions when retrieving content.
+citeturn0search0
+
+Copilot Studio also supports connector-based tools/actions that let an
+agent interact with external systems and perform business operations.
+citeturn1search1turn1search5
+
 ## Objective
 
 Build an AI customer-support agent that uses:
@@ -437,13 +520,17 @@ Build an AI customer-support agent that uses:
 -   Warranty policy
 -   Customer-service FAQ
 
-Then demonstrate the difference between **knowledge** and **action**.
+Then demonstrate the difference between:
+
+**Knowledge** --- finding and using business information.
+
+**Action** --- performing a business operation.
 
 ------------------------------------------------------------------------
 
 # Part 1 --- Prepare SharePoint Knowledge
 
-Create or use a SharePoint training site.
+## Step 1 --- Create or use a SharePoint training site
 
 Example:
 
@@ -451,13 +538,15 @@ Example:
 Contoso Customer Support
 ```
 
-Create a document library:
+## Step 2 --- Create the document library
+
+Create:
 
 ``` text
 AI Knowledge
 ```
 
-Organize the supplied documents as:
+## Step 3 --- Organize the supplied documents
 
 ``` text
 AI Knowledge
@@ -479,17 +568,17 @@ This demonstrates data organization and cleanliness.
 
 ------------------------------------------------------------------------
 
-# Part 2 --- Create the AI Agent
+# Part 2 --- Create the Agent
 
-Open Copilot Studio.
+## Step 1 --- Open Copilot Studio
 
-Create:
+Create a custom agent:
 
 ``` text
 Contoso Customer Support Agent
 ```
 
-Purpose:
+## Step 2 --- Configure the purpose
 
 ``` text
 Help Contoso customer-service employees find approved
@@ -498,20 +587,35 @@ product, troubleshooting, warranty, and support information.
 
 ------------------------------------------------------------------------
 
-# Part 3 --- Add SharePoint Knowledge
+# Part 3 --- Add SharePoint as Knowledge
 
-Open the agent's **Knowledge** configuration.
+## Step 1 --- Open Knowledge
 
-Add the SharePoint site or appropriate SharePoint location containing
-the training documents.
+In the Copilot Studio agent, open **Knowledge**.
 
-Use a meaningful description:
+## Step 2 --- Add SharePoint
+
+Select **Add knowledge → SharePoint**.
+
+Register the SharePoint site or folder containing the training content.
+
+Copilot Studio can use SharePoint sites, lists, and content as knowledge
+sources. The SharePoint knowledge option searches the registered
+location and respects the user's permissions. citeturn0search0
+
+## Step 3 --- Add a clear description
+
+Use:
 
 ``` text
 Approved product manuals, troubleshooting guides,
 warranty policies, and customer-service FAQs for
 Contoso support employees.
 ```
+
+A detailed knowledge-source description helps the agent's generative
+orchestration understand when the source is relevant.
+citeturn0search0turn0search2
 
 ------------------------------------------------------------------------
 
@@ -526,7 +630,7 @@ What should I do if the X200 overheats?
 The agent should retrieve relevant information from the troubleshooting
 and product documents.
 
-### Architecture
+## Architecture
 
 ``` text
 Employee Question
@@ -589,26 +693,26 @@ Discuss:
 
 > Is this information available in the configured knowledge?
 
-Expected answer:
-
-> No.
+**Expected answer:** No.
 
 The architect must define the scope of the knowledge architecture.
 
 ------------------------------------------------------------------------
 
-# Part 7 --- Discuss Security
+# Part 7 --- Validate Security
 
 Ask:
 
 > If an employee does not have permission to access a SharePoint
 > document, should the AI expose the document's contents?
 
-Expected answer:
+**Expected answer:** No. The AI solution should respect the user's
+permissions.
 
-> No. The AI solution should respect the user's permissions.
+SharePoint knowledge retrieval in Copilot Studio only surfaces content
+the signed-in user is permitted to access. citeturn0search0
 
-### Architecture
+## Architecture
 
 ``` text
 Employee
@@ -626,43 +730,109 @@ Grounded Response
 
 ------------------------------------------------------------------------
 
-# Part 8 --- Extend the Agent with an Action
+# Part 8 --- Add a Real Action: Create Support Case
 
-Introduce:
+## Platform
 
-> Knowledge allows the agent to read information. Actions allow the
-> agent to do something.
+**Copilot Studio connector tool + SharePoint List**
 
-Create a simple training action such as:
+For this lab, use a SharePoint List as the simple training business
+system.
+
+This avoids introducing Power Platform as a separate hands-on platform
+while still demonstrating how an agent can perform an action.
+
+Copilot Studio supports connector-based tools that can perform actions
+against connected services. citeturn1search1turn1search5
+
+## Step 1 --- Create the SharePoint list
+
+Create a list:
 
 ``` text
-Create Support Case
+Support Cases
 ```
 
-The action can write to a suitable training data source available in the
-environment.
+Create these columns:
 
-Test:
+  Column     Type
+  ---------- ------------------------
+  Title      Single line of text
+  Customer   Single line of text
+  Product    Single line of text
+  Issue      Multiple lines of text
+  Priority   Choice
+  Status     Choice
+
+Suggested choices:
+
+**Priority** - Low - Medium - High
+
+**Status** - New - In Progress - Closed
+
+## Step 2 --- Add the action/tool
+
+In Copilot Studio, add a SharePoint connector tool/action that creates
+an item in the `Support Cases` list.
+
+Configure the action to populate:
+
+-   Title
+-   Customer
+-   Product
+-   Issue
+-   Priority
+-   Status
+
+## Step 3 --- Configure the action description
+
+Use a clear description such as:
+
+``` text
+Create a new customer support case in the Contoso Support Cases
+SharePoint list when the employee explicitly asks to create a case.
+Collect the customer, product, issue, priority, and status.
+```
+
+Clear tool descriptions help Copilot Studio determine when a tool should
+be used. citeturn1search1
+
+## Step 4 --- Test the action
+
+Ask:
 
 ``` text
 Create a high-priority support case for Fabrikam.
 The X200 is overheating.
 ```
 
-### Architecture
+If required information is missing, allow the agent to ask for it.
+
+Expected result:
+
+``` text
+Support Case
+Customer: Fabrikam
+Product: X200
+Issue: Overheating
+Priority: High
+Status: New
+```
+
+## Architecture
 
 ``` text
 Employee
    ↓
-AI Support Agent
+Copilot Studio Agent
    ↓
 Understand Request
    ↓
-Validate Required Information
+Collect / Validate Information
    ↓
-Create Support Case Action
+SharePoint Connector Action
    ↓
-Business System
+Support Cases List
    ↓
 Case Created
    ↓
@@ -683,6 +853,9 @@ Confirmation
               ↓                 ↓                 ↓
           Automate           Analyze           Support
             Tasks             Data             Decisions
+              │                 │                 │
+              ↓                 ↓                 ↓
+       M365 Copilot Chat   Copilot in Excel   Copilot in Excel
               │                 │                 │
               └─────────────────┼─────────────────┘
                                 ↓
@@ -705,7 +878,7 @@ Confirmation
                                 ↓
                          Retrieve Context
                                 ↓
-                           AI / RAG
+                    Copilot Studio Agent
                            /       \
                           ↓         ↓
                      Knowledge    Actions
@@ -716,25 +889,38 @@ Confirmation
 
 # Final Architect Questions
 
-**Q: Why did we use Microsoft 365 Copilot for Lab 1?**
+**Q: Which Microsoft Copilot did we use for Lab 1 email summarization?**
 
-**Expected answer:** It provides a practical way to experience
-AI-assisted tasks, business-data analysis, and decision support.
+**Expected answer:** Microsoft 365 Copilot Chat.
+
+**Q: Which Copilot did we use for the Excel analysis?**
+
+**Expected answer:** Copilot in Excel, part of the Microsoft 365 Copilot
+experience.
+
+**Q: Which Copilot did we use for Labs 2 and 3?**
+
+**Expected answer:** Microsoft Copilot Studio.
 
 **Q: Why did we use Copilot Studio for Lab 2?**
 
-**Expected answer:** It lets us directly configure and test an agent's
-knowledge and grounding.
+**Expected answer:** It lets us configure an agent and its knowledge
+sources so we can directly investigate grounding.
 
-**Q: Why use SharePoint in Lab 3?**
+**Q: Why did we use SharePoint in Lab 3?**
 
-**Expected answer:** It provides a realistic enterprise knowledge source
-and demonstrates retrieval, organization, and permission-aware access.
+**Expected answer:** It provides realistic enterprise knowledge and
+demonstrates organization, retrieval, and permission-aware access.
 
 **Q: What is the difference between Lab 2 and Lab 3?**
 
-**Expected answer:** Lab 2 diagnoses and improves grounding quality; Lab
-3 designs the broader AI data architecture.
+**Expected answer:** Lab 2 fixes a grounding and data-quality problem;
+Lab 3 designs the broader AI-ready data architecture.
+
+**Q: What is the difference between knowledge and an action?**
+
+**Expected answer:** Knowledge helps the agent find and use information;
+an action lets the agent perform a business operation.
 
 **Q: What is the most important architectural lesson from these labs?**
 
