@@ -1,0 +1,9 @@
+ID,Category,Prompt
+P001,Classification,"Classify this document as Customer Service, Sales, Finance, HR, or Operations. Return only the category."
+P002,Classification,"Classify this document as Customer Service, Sales, Finance, HR, or Operations. Return only the category. Document: X200 overheating warning reported by a customer."
+P003,Summarization,Summarize this customer support case in five bullet points and identify the next troubleshooting action.
+P004,Simple Q&A,What information is required to open a customer support case? Return a short checklist.
+P005,Complex reasoning,"Analyze the following three-year financial scenario, compare two strategic options, identify assumptions, and explain the business impact."
+P006,Complex reasoning,"Evaluate a multi-step business process redesign involving cost, risk, compliance, and customer experience. Provide a structured recommendation with assumptions."
+P007,Long context,"Review the supplied policy text and identify the requirements that apply to customer data retention, access, and regional processing."
+P008,Agent/tool use,"Determine whether a support case should be created from the conversation. If required, return the fields that a business action would need."

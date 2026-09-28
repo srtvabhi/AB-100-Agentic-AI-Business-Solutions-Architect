@@ -1,0 +1,9 @@
+Criterion,Weight,Build,Buy,Extend
+Time-to-value,20,2,5,4
+Customization,20,5,2,4
+Integration control,15,5,3,5
+Initial cost efficiency,10,2,5,4
+Long-term maintenance,10,2,5,4
+Vendor dependency,10,5,2,3
+Strategic differentiation,10,5,2,4
+Scalability,5,4,4,4
