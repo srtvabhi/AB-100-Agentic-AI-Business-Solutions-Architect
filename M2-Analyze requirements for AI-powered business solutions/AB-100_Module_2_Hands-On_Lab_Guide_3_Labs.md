@@ -52,7 +52,7 @@ Use this for summarization and AI-assisted productivity.
 
 Use this for analysis of the supplied Excel workbooks. Copilot in Excel
 can surface summaries, trends, outliers, charts, and PivotTables from
-workbook data. citeturn1search6turn1search8
+workbook data.
 
 ## Objective
 
