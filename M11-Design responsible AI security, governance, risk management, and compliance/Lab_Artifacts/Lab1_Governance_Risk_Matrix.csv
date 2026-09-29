@@ -1,0 +1,6 @@
+Factor,Low,Medium,High,Critical,AssessmentQuestion
+Data Sensitivity,Public/Internal,Confidential,Sensitive,Highly regulated,What data can the agent access?
+Business Impact,Informational,Operational,Customer-impacting,Financial/legal,What happens if the agent is wrong?
+Autonomy,Read-only,Limited actions,Multiple actions,High-impact autonomous actions,What can the agent do?
+External Exposure,Internal only,Limited users,Large user population,External/public,Who can use the agent?
+Regulatory Impact,None,Internal policy,Regulated process,High regulatory impact,Are regulated decisions involved?

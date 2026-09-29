@@ -1,0 +1,10 @@
+Role,DataDomain,Permission,RiskLevel,RequiredForRole,Notes
+Support Agent,Customer Profile,Read customer profile,Medium,Yes,Required for case handling
+Support Agent,Customer Financial Details,Read financial details,High,No,Should be restricted
+Support Agent,Service Cases,Create service case,Medium,Yes,Required for support workflow
+Support Agent,Contract Management,Cancel contract,Critical,No,High-impact action
+Support Manager,Customer Financial Details,Read financial details,High,Yes,Manager-only access
+Support Manager,Contract Management,Cancel contract,Critical,Conditional,Requires approval
+Knowledge Curator,Product Knowledge,Modify knowledge,High,Yes,Content management role
+AI Developer,Agent Configuration,Modify agent configuration,High,Yes,Controlled development role
+AI Developer,Production Permissions,Direct production edit,Critical,No,Use controlled deployment

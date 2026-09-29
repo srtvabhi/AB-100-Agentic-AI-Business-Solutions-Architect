@@ -1,0 +1,9 @@
+TestId,Tool,RequestedOperation,UserAuthorized,ParametersValid,BusinessRuleSatisfied,ExpectedAction
+TC001,Customer Search,Read customer profile,Yes,Yes,Yes,Allow
+TC002,Customer Search,Read restricted financial profile,No,Yes,Yes,Deny
+TC003,Create Case,Create support case,Yes,Yes,Yes,Allow
+TC004,Cancel Contract,Cancel active contract,Yes,Yes,Yes,Require approval
+TC005,Change Payment Details,Modify payment account,Yes,No,Yes,Deny
+TC006,Export Customer Data,Export all customer data,Yes,Yes,No,Deny
+TC007,Cancel Contract,Cancel protected contract,Yes,Yes,No,Deny
+TC008,Product Search,Read product information,Yes,Yes,Yes,Allow

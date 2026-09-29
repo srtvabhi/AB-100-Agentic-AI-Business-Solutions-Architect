@@ -1,0 +1,7 @@
+DataId,DataType,Classification,Owner,AuthorizedUsers,GeographicRequirement,AIUsage,AdditionalControl
+D001,Public Product Information,Public,Product Team,All employees,None,Allowed,Basic governance
+D002,Internal Business Policy,Internal,Operations,Employees,Approved regions,Allowed,Access control
+D003,Customer Account Data,Confidential,Sales,Authorized users,Approved regions,Conditional,Least privilege
+D004,Employee Records,Sensitive,HR,HR users,Regional restrictions,Conditional,Strong access control
+D005,Financial Account Data,Highly Regulated,Finance,Finance users,Regional restrictions,Conditional,Strong governance and approval
+D006,Customer Support Cases,Confidential,Customer Service,Support users,Approved regions,Allowed,Role-based access

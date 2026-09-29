@@ -1,0 +1,9 @@
+FlowId,Source,NextComponent,DataMoved,ProcessingLocation,ExternalDestination,ResidencyStatus,ReviewRequired
+F001,SharePoint Europe,Agent Connector,Employee documents,Europe,None,Approved,Yes
+F002,Customer CRM,Agent Connector,Customer profile,Europe,No,Approved,Yes
+F003,Agent Connector,AI Model,Customer context,Europe,None,Approved,Yes
+F004,Agent,External Translation API,Customer text,Europe,External service,Review required,Yes
+F005,Agent,Customer Service API,Case information,Europe,None,Approved,Yes
+F006,Agent,Telemetry,Interaction metadata,Europe,None,Approved,Yes
+F007,Finance Repository,Agent,Financial records,North America,No,Not approved for EU agent,Yes
+F008,Agent,External Analytics Service,Prompt and response,North America,External service,Review required,Yes

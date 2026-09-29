@@ -1,0 +1,8 @@
+ToolId,ToolName,Operation,DataAccess,ChangesData,Reversible,Impact,Approval
+T001,Customer Search,Read customer profile,Customer data,No,Yes,Medium,No
+T002,Case Search,Read service cases,Service data,No,Yes,Medium,No
+T003,Create Case,Create service case,Service data,Yes,Yes,Medium,No
+T004,Update Customer,Modify customer record,Customer data,Yes,Usually,High,Conditional
+T005,Cancel Contract,Cancel customer contract,Contract data,Yes,No,Critical,Yes
+T006,Change Payment Details,Modify payment data,Financial data,Yes,No,Critical,Yes
+T007,Product Search,Read product knowledge,Product data,No,Yes,Low,No

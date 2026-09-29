@@ -1,0 +1,12 @@
+Role,Resource,Action,AccessLevel,Justification,Review
+Employee,Public Product Information,Read,Allowed,General information,Standard
+Employee,Internal Business Policy,Read,Allowed,Employee policy access,Standard
+Sales User,Customer Account Data,Read,Allowed,Customer support/sales work,Standard
+Support User,Customer Account Data,Read,Conditional,Only assigned customer scope,Strict
+HR User,Employee Records,Read,Allowed,HR responsibilities,Strict
+Finance User,Financial Account Data,Read,Allowed,Finance responsibilities,Strict
+AI Agent,Customer Account Data,Retrieve,Conditional,Only user-authorized scope,Strict
+AI Agent,Employee Records,Retrieve,Conditional,Only HR-approved workflows,Strict
+AI Developer,Model Configuration,Modify,Allowed,Development responsibility,Strict
+AI Developer,Production Model,Modify,Not Allowed,Use controlled release process,Strict
+Model Tuning Specialist,Model Configuration,Modify,Allowed,Approved tuning responsibility,Strict
