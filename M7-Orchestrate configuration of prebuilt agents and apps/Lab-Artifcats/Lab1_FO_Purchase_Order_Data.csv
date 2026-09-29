@@ -1,0 +1,5 @@
+PurchaseOrder,Supplier,Status,WorkflowStatus,SupplierStatus,SupplyException,ResponsibleRole
+PO-10482,Contoso Components,On Hold,Pending Approval,Active,None,Procurement Manager
+PO-10483,Fabrikam Metals,Confirmed,Completed,Active,None,None
+PO-10484,Northwind Parts,On Hold,Completed,Blocked,Supplier Documentation,Vendor Management
+PO-10485,Adventure Works,Open,Pending Approval,Active,Inventory Shortage,Procurement Manager

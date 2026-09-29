@@ -1,0 +1,5 @@
+Supplier,CertificateType,IssueDate,ExpirationDate,Status
+Contoso Components,ISO 9001,2026-01-15,2027-01-14,Current
+Fabrikam Metals,Safety Certificate,2025-02-01,2026-01-31,Expired
+Northwind Parts,Environmental Certificate,2026-03-10,2027-03-09,Current
+Adventure Works,Supplier Compliance Certificate,2025-08-01,2026-07-31,Expired

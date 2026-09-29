@@ -1,0 +1,5 @@
+RecordType,RecordId,Customer,Subject,Status,Owner,NextAction
+Opportunity,OP-2045,Contoso Ltd,Enterprise renewal,Open,Asha,Schedule renewal review
+Opportunity,OP-2046,Fabrikam Inc,Cloud migration,Open,Ravi,Send migration proposal
+Case,CS-7821,Contoso Ltd,Authentication failure,In Progress,Meera,Review troubleshooting article
+Case,CS-7822,Northwind Ltd,Invoice question,Open,Daniel,Validate invoice details
