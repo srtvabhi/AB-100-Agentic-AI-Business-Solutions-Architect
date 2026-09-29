@@ -1,0 +1,6 @@
+DependencyId,SourceApp,TargetApp,DependencyType,AIImpact,SecurityImpact,BusinessProcess
+D001,Sales,Customer Service,Customer data,High,High,Customer support
+D002,Finance,Supply Chain,Financial data,High,High,Procurement
+D003,Supply Chain,Finance,Inventory/cost data,Medium,High,Inventory planning
+D004,Sales,Customer Service,Account context,High,High,Case resolution
+D005,Finance,Supply Chain,Budget/approval rules,High,High,Purchasing

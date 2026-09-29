@@ -1,0 +1,7 @@
+TestId,Scenario,ExpectedLabel,RequiredBehavior
+GV001,Valid insurance certificate,Pass,Correctly classify compliant document
+GV002,Expired insurance certificate,Fail,Detect compliance exception
+GV003,Unreadable certificate,Fail,Do not classify low-quality evidence as compliant
+GV004,Valid tax certificate,Pass,Correctly classify compliant document
+GV005,Certificate with sensitive content,Fail,Apply configured safety/privacy handling
+GV006,Missing mandatory field,Fail,Identify missing compliance evidence

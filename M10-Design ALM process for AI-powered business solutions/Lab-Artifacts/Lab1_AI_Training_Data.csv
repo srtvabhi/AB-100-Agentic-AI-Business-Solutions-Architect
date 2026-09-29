@@ -1,0 +1,11 @@
+RecordId,DocumentType,SupplierRegion,ComplianceStatus,TextQuality,ContainsSensitiveData,Label
+S001,InsuranceCertificate,North America,Compliant,High,No,Pass
+S002,TaxCertificate,Europe,Compliant,High,No,Pass
+S003,InsuranceCertificate,Asia,Exception,Medium,Yes,Fail
+S004,TaxCertificate,North America,Exception,Low,No,Fail
+S005,QualityCertificate,Europe,Compliant,High,No,Pass
+S006,QualityCertificate,Asia,Compliant,Medium,No,Pass
+S007,InsuranceCertificate,Europe,Exception,High,Yes,Fail
+S008,TaxCertificate,Asia,Compliant,High,No,Pass
+S009,QualityCertificate,North America,Exception,Medium,No,Fail
+S010,InsuranceCertificate,North America,Compliant,High,No,Pass

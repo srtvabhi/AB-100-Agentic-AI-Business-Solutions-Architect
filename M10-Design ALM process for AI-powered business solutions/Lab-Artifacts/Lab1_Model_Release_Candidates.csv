@@ -1,0 +1,4 @@
+ModelVersion,DatasetVersion,Accuracy,FalsePositiveRate,FalseNegativeRate,LatencyMs,GoldenValidation,SecurityReview,RegressionStatus,ApprovalStatus
+v1.8,2026-07,0.91,0.04,0.07,620,Pass,Pass,Pass,Approved
+v1.9,2026-08,0.93,0.03,0.05,590,Pass,Pass,Pass,Pending
+v2.0,2026-09,0.95,0.08,0.02,540,Pass,Pending,Pending,NotApproved

@@ -1,0 +1,6 @@
+ScenarioId,Change,ApplicationsAffected,AIComponent,IntegrationTest,SecurityTest,UATRequired
+R001,Customer Service AI response update,Sales;Customer Service,Prompt/Agent,Yes,Yes,Yes
+R002,Customer account data mapping change,Sales;Customer Service,Grounding data,Yes,Yes,Yes
+R003,Procurement AI rule change,Finance;Supply Chain,AI business rule,Yes,Yes,Yes
+R004,Finance data field rename,Finance;Supply Chain,Grounding/integration,Yes,Yes,Yes
+R005,Customer Service knowledge update,Customer Service,Knowledge source,Yes,Yes,Yes

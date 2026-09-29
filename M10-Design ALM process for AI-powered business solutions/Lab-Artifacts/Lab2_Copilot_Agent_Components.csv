@@ -1,0 +1,9 @@
+ComponentId,Component,Type,EnvironmentSensitive,TestRequired,SecurityRelevant
+C001,Customer Account Agent,Agent,No,Yes,Yes
+C002,Customer FAQ Knowledge,Knowledge,Yes,Yes,Yes
+C003,Account Lookup Connector,Connector,Yes,Yes,Yes
+C004,Account Status Action,Action,Yes,Yes,Yes
+C005,Customer Account Prompt,Prompt,No,Yes,Yes
+C006,Response Formatting Instructions,Behavior,No,Yes,No
+C007,Customer Data Connection,Configuration,Yes,Yes,Yes
+C008,Support Agent Test Set,Test Asset,No,Yes,No

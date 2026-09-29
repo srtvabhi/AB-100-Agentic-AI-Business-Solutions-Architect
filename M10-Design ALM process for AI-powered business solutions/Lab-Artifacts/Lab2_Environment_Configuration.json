@@ -1,0 +1,22 @@
+{
+  "DEV": {
+    "customerApiBase": "https://dev.example.invalid/customer",
+    "connectionReference": "DEV-CustomerConnection",
+    "loggingLevel": "Verbose"
+  },
+  "TEST": {
+    "customerApiBase": "https://test.example.invalid/customer",
+    "connectionReference": "TEST-CustomerConnection",
+    "loggingLevel": "Standard"
+  },
+  "PRE-PROD": {
+    "customerApiBase": "https://preprod.example.invalid/customer",
+    "connectionReference": "PREPROD-CustomerConnection",
+    "loggingLevel": "Standard"
+  },
+  "PROD": {
+    "customerApiBase": "https://prod.example.invalid/customer",
+    "connectionReference": "PROD-CustomerConnection",
+    "loggingLevel": "Standard"
+  }
+}
