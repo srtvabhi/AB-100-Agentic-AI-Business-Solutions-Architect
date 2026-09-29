@@ -1,0 +1,6 @@
+CaseId,Customer,Priority,Issue,Status,AssignedTeam
+CS1001,Contoso Manufacturing,High,F101 Overtemperature,Open,Hardware Support
+CS1002,Northwind Logistics,Medium,F202 Network unavailable,Open,Network Support
+CS1003,Fabrikam Retail,Low,Installation question,In Progress,Implementation
+CS1004,Adventure Works,High,Controller stops unexpectedly,Open,Hardware Support
+CS1005,Tailspin Toys,Medium,Warranty eligibility question,Open,Customer Care

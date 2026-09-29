@@ -1,0 +1,5 @@
+Term,Definition,Example
+Escalation,Case requiring priority handling due to business impact,High-priority service case
+Resolution Status,Current state of customer issue,Resolved
+Warranty Request,Customer request to validate warranty coverage,Serial number submitted
+Priority,Service handling priority,High
