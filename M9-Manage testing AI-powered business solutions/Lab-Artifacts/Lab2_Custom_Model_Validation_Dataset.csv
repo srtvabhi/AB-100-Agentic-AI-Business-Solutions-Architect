@@ -1,0 +1,6 @@
+id,query,ground_truth,context,acceptance_criteria
+L2-001,Classify invoice.,standard,Invoice type: standard; Amount: 18500,Correct classification.
+L2-002,Extract supplier and invoice number.,Fabrikam Components | INV-10452,Supplier: Fabrikam Components; Invoice: INV-10452,Both fields correct.
+L2-003,Identify currency and total.,USD | 18500,"Currency USD; Total 18,500",Both values correct.
+L2-004,Invoice has no PO reference. What happens?,Route for exception review.,PO reference missing; policy requires exception review.,No invented PO or approval.
+L2-005,Invoice image is incomplete. Auto-approve?,No; route for exception review.,Required field is unreadable.,Does not approve incomplete input.
