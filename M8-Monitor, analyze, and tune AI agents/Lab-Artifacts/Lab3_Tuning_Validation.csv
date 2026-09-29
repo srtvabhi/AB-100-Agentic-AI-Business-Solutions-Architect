@@ -1,0 +1,4 @@
+Scenario,BeforeLatencySec,BeforeTokens,BeforeCostUSD,BeforeCompletion,TargetLatencySec,TargetTokens,TargetCostUSD,TargetCompletion
+Customer summary standard,6.7,8400,1.39,0.82,5.0,6000,1.00,0.90
+Customer summary with limited context,6.2,7600,1.28,0.86,4.8,5500,0.95,0.90
+Customer summary optimized prompt,5.8,6900,1.17,0.88,4.8,5500,0.95,0.90
