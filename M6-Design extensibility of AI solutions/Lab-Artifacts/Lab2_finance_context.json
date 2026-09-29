@@ -1,0 +1,49 @@
+{
+  "customers": [
+    {
+      "customerId": "CUS-2001",
+      "name": "Contoso Industrial Systems",
+      "region": "North America",
+      "creditStatus": "Review",
+      "riskClass": "B"
+    },
+    {
+      "customerId": "CUS-2002",
+      "name": "Northwind Mobility",
+      "region": "Europe",
+      "creditStatus": "Approved",
+      "riskClass": "A"
+    }
+  ],
+  "vendors": [
+    {
+      "vendorId": "VEN-3101",
+      "name": "Alpine Industrial Parts",
+      "status": "Active",
+      "paymentTerms": "Net 30"
+    },
+    {
+      "vendorId": "VEN-3102",
+      "name": "Fabrikam Supply",
+      "status": "Review",
+      "paymentTerms": "Net 45"
+    }
+  ],
+  "approvalChains": [
+    {
+      "process": "Customer Credit Adjustment",
+      "requiredRole": "Finance Manager",
+      "humanApprovalRequired": true
+    }
+  ],
+  "businessRules": [
+    {
+      "rule": "High-risk financial decisions",
+      "action": "Require human review"
+    },
+    {
+      "rule": "Customer credit status",
+      "action": "Use current Finance & Operations context"
+    }
+  ]
+}

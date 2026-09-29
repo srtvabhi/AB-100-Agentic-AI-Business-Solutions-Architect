@@ -1,0 +1,5 @@
+SupplierID,Supplier,InvoiceNumber,PurchaseOrder,InvoiceDate,Amount,Status
+SUP-1007,Alpine Industrial Parts,INV-2026-0418,PO-450017,2026-09-15,18450.00,Pending Review
+SUP-1012,Northwind Components,INV-2026-0421,PO-450022,2026-09-17,9250.00,Approved
+SUP-1024,Fabrikam Industrial Supply,INV-2026-0398,PO-449981,2026-09-08,12780.00,On Hold
+SUP-1031,Contoso Metals,INV-2026-0411,PO-450004,2026-09-12,22100.00,Pending Review
