@@ -1,7 +1,0 @@
-Timestamp,Agent,Requests,SuccessfulTasks,Errors,AvgLatencySec,AbandonmentRate,EscalationRate
-2026-09-01,Contoso Service Agent,1200,1130,18,2.1,0.04,0.05
-2026-09-02,Contoso Service Agent,1280,1201,21,2.2,0.05,0.06
-2026-09-03,Contoso Service Agent,1310,1210,27,2.8,0.08,0.08
-2026-09-04,Contoso Service Agent,1400,1245,42,3.6,0.12,0.13
-2026-09-05,Contoso Service Agent,1380,1252,39,3.8,0.13,0.14
-2026-09-06,Contoso Service Agent,1450,1320,31,3.2,0.09,0.10

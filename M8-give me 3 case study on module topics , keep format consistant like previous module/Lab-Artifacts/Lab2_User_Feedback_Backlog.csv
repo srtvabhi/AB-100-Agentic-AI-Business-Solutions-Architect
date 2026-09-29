@@ -1,9 +1,0 @@
-FeedbackID,Date,Channel,Scenario,Feedback,Category,Severity,Frequency,Status
-F001,2026-09-01,Teams,Order status,"Agent gives useful answer but cannot retrieve order when only customer name is provided",Integration,High,18,Open
-F002,2026-09-02,Teams,Warranty,"Warranty answer references an older policy",Knowledge,High,14,Open
-F003,2026-09-02,Web,Case summary,"Summary is accurate but too long",UX,Medium,22,Open
-F004,2026-09-03,Teams,Order status,"Response takes too long after CRM lookup",Performance,High,31,Open
-F005,2026-09-04,Web,General question,"Agent correctly refuses unsupported request",Quality,Low,8,Closed
-F006,2026-09-04,Teams,Case update,"Action fails when case is locked",Integration,High,11,Open
-F007,2026-09-05,Teams,Product question,"Answer is missing information from the latest product guide",Knowledge,Medium,16,Open
-F008,2026-09-05,Web,Case summary,"Users cannot tell what action to take next",UX,Medium,27,Open
