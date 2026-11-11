@@ -1,402 +1,567 @@
-# AB-100 Hands-On Lab Guide --- Microsoft 365 Copilot & Copilot Studio
+# Hands-on Lab: Build an AI-Powered Equipment Support Desk
 
-## Lab 1 --- Microsoft 365 Copilot Chat: Customer Support Assistance
+## Lab Overview
 
-### Step 1 --- Open Microsoft 365 Copilot Chat
+In this lab, you will build the **Contoso Equipment Support Desk** using **Microsoft 365 Copilot Agent Builder**.
 
-1.  Open Microsoft 365 Copilot Chat.
-2.  Sign in with your Microsoft 365 account.
-3.  Start a new conversation.
+The agent will help equipment support employees:
 
-### Step 2 --- Analyze a Customer Email
+- Troubleshoot **Contoso X200** equipment issues
+- Find relevant troubleshooting procedures
+- Identify when an issue should be escalated
+- Answer warranty-related questions
+- Prepare information required for a support case
+- Avoid generating unsupported answers
 
-Use this sample customer request:
+The agent will use approved organizational documents stored in **SharePoint** as its knowledge source.
 
-> Our X200 machine is overheating after running for three hours. What
-> should we check?
+---
 
-Ask Copilot:
+## Estimated Duration
 
-> Summarize the customer's problem and identify the information a
-> support employee would need to investigate it.
+**25–30 minutes**
 
-### Step 3 --- Generate a Support Response
+---
 
-Ask:
+## Business Scenario
 
-> Draft a professional response to the customer about the X200
-> overheating issue. Keep the response clear and do not invent technical
-> details that are not provided.
+Contoso Manufacturing operates X200 industrial equipment across multiple manufacturing locations.
 
-### Step 4 --- Create a Troubleshooting Checklist
+Equipment operators regularly contact the Equipment Support Desk with questions such as:
 
-Ask:
+- My X200 is overheating. What should I check?
+- When should the issue be escalated?
+- Is the equipment still under warranty?
+- What information should I collect before opening a support case?
 
-> Create a short troubleshooting checklist that a support engineer can
-> use for this customer issue.
+The required information exists, but it is distributed across multiple documents in SharePoint.
 
-### Step 5 --- Create a Follow-Up Summary
+Support engineers may have to locate and review several documents before responding.
 
-Ask:
+The goal of this lab is to create an AI-powered Equipment Support Desk that allows employees to describe the problem in natural language and receive answers grounded in approved company information.
 
-> Summarize this customer issue into a short internal support note
-> containing the problem, required investigation, and next action.
+---
 
-### Lab Architecture
+# Business Pain Points
 
-``` text
-Customer Email
-      ↓
-Microsoft 365 Copilot Chat
-      ↓
-Understand
-Summarize
-Generate
-      ↓
-Support Employee
+| Pain Point | Business Impact | Lab Solution |
+|---|---|---|
+| Information is scattered across documents | Employees spend time searching | Ground the agent with SharePoint knowledge |
+| Troubleshooting steps may be missed | Longer equipment downtime | Provide step-by-step troubleshooting guidance |
+| Different employees may provide different answers | Inconsistent support experience | Use approved organizational knowledge |
+| Employees may not know when to escalate | Delayed problem resolution | Provide documented escalation criteria |
+| Warranty information must be accurate | Incorrect commitments to customers | Ground answers in the warranty policy |
+| AI could generate unsupported information | Operational and safety risk | Configure the agent not to guess |
+
+---
+
+# Solution Architecture
+
+```text
+Equipment Operator
+        |
+        | "My X200 is overheating"
+        v
+Microsoft 365 Copilot
+        |
+        v
+Contoso Equipment Support Desk Agent
+        |
+        v
+SharePoint Knowledge
+        |
+        +-- Product Manual
+        +-- Troubleshooting Guide
+        +-- Warranty Policy
+        +-- Customer Service FAQ
+        |
+        v
+Grounded Support Response
 ```
 
-------------------------------------------------------------------------
+---
 
-# Lab 2 --- Microsoft 365 Copilot: Business Knowledge
+# Lab Artifacts
 
-## Step 1 --- Prepare Business Documents
+Use the following four files:
 
-Use these sample documents:
+1. Contoso_X200_Product_Manual.docx
+2. Contoso_X200_Troubleshooting_Guide.docx
+3. Contoso_Warranty_Policy.docx
+4. Contoso_Customer_Service_FAQ.docx
 
--   Contoso Product Manual
--   Contoso Troubleshooting Guide
--   Contoso Warranty Policy
--   Contoso Customer Service SOP
+These files will be uploaded to **SharePoint** and configured as knowledge sources for the agent.
 
-Make the documents available in the supported Microsoft 365 location
-used for the lab.
+---
 
-## Step 2 --- Ask a Knowledge-Based Question
+# Exercise 1: Prepare the SharePoint Knowledge Base
 
-Ask:
+## Step 1: Create the SharePoint Folder
 
-> According to the Contoso warranty policy, what should a support
-> employee do when an X200 machine overheats?
+1. Open your training **SharePoint** site.
+2. Open the **Documents** library.
+3. Select **New > Folder**.
+4. Enter the folder name:
 
-Check that the response is based on the available business information.
+**Contoso Equipment Support**
 
-## Step 3 --- Ask a Product Question
+5. Select **Create**.
 
-Ask:
+---
 
-> According to the Contoso troubleshooting guide, what checks should be
-> performed when an X200 overheats?
+## Step 2: Upload the Lab Artifacts
 
-## Step 4 --- Ask for a Response
+Open the **Contoso Equipment Support** folder.
 
-Ask:
+Upload:
 
-> Using the Contoso support information, draft a response to the
-> customer about the X200 overheating issue.
+- Contoso_X200_Product_Manual.docx
+- Contoso_X200_Troubleshooting_Guide.docx
+- Contoso_Warranty_Policy.docx
+- Contoso_Customer_Service_FAQ.docx
 
-## Step 5 --- Test an Unknown Question
+Your SharePoint structure should look similar to:
 
-Ask:
-
-> What is Contoso's warranty policy for a product that is not included
-> in the available documents?
-
-Check how Copilot handles information that is not available.
-
-### Lab Architecture
-
-``` text
-                 Microsoft 365 Copilot
-                         ↓
-                  Business Knowledge
-                  /      |       \
-                 ↓       ↓        ↓
-             Manual     FAQ    Warranty
-                  \      |       /
-                   \     |      /
-                    ↓    ↓     ↓
-                  Grounded Response
-                         ↓
-                  Support Employee
+```text
+Documents
+|
++-- Contoso Equipment Support
+    |
+    +-- Contoso_X200_Product_Manual.docx
+    +-- Contoso_X200_Troubleshooting_Guide.docx
+    +-- Contoso_Warranty_Policy.docx
+    +-- Contoso_Customer_Service_FAQ.docx
 ```
 
-------------------------------------------------------------------------
+### Pain Point Being Solved
 
-# Lab 3 --- Copilot Studio: Create a Customer Support Agent
+Previously, support information could exist across different documents.
 
-## Step 1 --- Open Copilot Studio
+SharePoint now becomes the central location containing the **approved equipment-support knowledge** used by the agent.
 
-1.  Open Microsoft Copilot Studio.
-2.  Sign in.
-3.  Create a new agent.
+---
 
-## Step 2 --- Define the Agent
+# Exercise 2: Create the Equipment Support Agent
 
-Use:
+## Step 3: Open Agent Builder
 
-**Name:** Contoso Support Agent
+1. Open **Microsoft 365 Copilot**.
+2. Navigate to **Agents**.
+3. Select **New agent**.
+4. Open **Configure**.
 
-Use the following purpose:
+---
 
-> Help Contoso customer-service employees answer questions about Contoso
-> products, troubleshooting procedures, and support policies.
+## Step 4: Configure the Agent Identity
 
-## Step 3 --- Configure Agent Instructions
+Enter the following information.
 
-Add instructions similar to:
+### Name
 
-> You are a Contoso customer-support assistant. Use approved Contoso
-> support information to answer questions. Do not invent product
-> information or company policies. If the required information is not
-> available, clearly tell the employee that the information is
-> unavailable.
+**Contoso Equipment Support Desk**
 
-## Step 4 --- Add Knowledge
+### Description
 
-Add the following business documents:
-
--   Contoso Product Manual
--   Contoso Troubleshooting Guide
--   Contoso Warranty Policy
--   Contoso FAQ
-
-## Step 5 --- Test the Agent
-
-Ask:
-
-> What should I do if an X200 overheats?
-
-Check whether the agent uses the available Contoso knowledge.
-
-### Lab Architecture
-
-``` text
-                 Contoso Support Agent
-                          │
-                          ↓
-                    Agent Instructions
-                          │
-                          ↓
-                       Knowledge
-                    /      |       \
-                   ↓       ↓        ↓
-               Manual   FAQ    Warranty
-                          │
-                          ↓
-                   Grounded Answer
+```text
+Helps equipment support employees troubleshoot Contoso X200 issues, identify escalation requirements, check warranty information, and prepare support cases using approved company knowledge.
 ```
 
-------------------------------------------------------------------------
+### Pain Point Being Solved
 
-# Lab 4 --- Copilot Studio: Extend the Agent with an Action
+Support employees now have **one conversational interface** for equipment-support questions instead of manually deciding which document to search.
 
-## Step 1 --- Define the Business Requirement
+---
 
-The support employee should be able to ask:
+# Exercise 3: Configure the Agent Instructions
 
-> Create a support case for this customer.
+## Step 5: Add Instructions
 
-The agent should perform an action instead of only generating text.
+Locate:
 
-## Step 2 --- Create the Support Case Data
+**Configure > Instructions**
 
-Create or use a support-case data source with fields such as:
+Enter:
 
--   Case ID
--   Customer
--   Issue
--   Priority
--   Status
+```text
+You are the Contoso Equipment Support Desk Agent.
 
-## Step 3 --- Create the Action
+Use the configured Contoso knowledge sources to answer equipment support questions.
 
-Create an action/workflow that can create a new support case.
+For equipment problems, provide clear troubleshooting steps in the correct order.
 
-The action should accept information such as:
+Clearly explain when an issue should be escalated.
 
--   Customer
--   Issue
--   Priority
+For warranty questions, use the approved warranty policy.
 
-## Step 4 --- Add the Action to the Agent
+Never recommend bypassing equipment safety controls.
 
-Configure the Contoso Support Agent so it can invoke the action when the
-user requests a new support case.
+If requested information is not available in the approved knowledge sources, clearly state that the information needs to be verified.
 
-## Step 5 --- Test the Action
-
-Ask:
-
-> Create a high-priority support case for Fabrikam. The X200 is
-> overheating after three hours of operation.
-
-Check that the agent:
-
-1.  Understands the request.
-2.  Collects required information.
-3.  Invokes the action.
-4.  Creates the support case.
-5.  Returns the result to the employee.
-
-### Lab Architecture
-
-``` text
-Employee
-   ↓
-"Create a support case"
-   ↓
-Contoso Support Agent
-   ↓
-Tool / Action
-   ↓
-Business Workflow
-   ↓
-Support Case Data
-   ↓
-Case Created
+Never guess or invent company policies, prices, procedures, technical specifications, or warranty information.
 ```
 
-------------------------------------------------------------------------
+### Why Are These Instructions Important?
 
-# Lab 5 --- Copilot Studio: Configure Agent Boundaries
+The instructions establish the expected behavior of the agent.
 
-## Step 1 --- Test a Supported Question
+The agent should:
 
-Ask:
+- Use approved organizational information
+- Provide actionable troubleshooting guidance
+- Respect equipment safety requirements
+- Recognize escalation situations
+- Avoid inventing unavailable information
 
-> What is the warranty period for the X200?
+This turns the agent from a general AI assistant into a **purpose-specific Equipment Support Desk agent**.
 
-Verify that the agent provides an answer based on the approved
-knowledge.
+---
 
-## Step 2 --- Test an Unsupported Request
+# Exercise 4: Configure Skills
 
-Ask:
+## Step 6: Review Skills
 
-> Invent a new warranty policy for the X200.
+Locate:
 
-Verify that the agent does not create a fictional company policy.
+**Skills > Add**
 
-## Step 3 --- Test Missing Information
+For this lab:
 
-Ask:
+**Do not add additional skills.**
 
-> What is the warranty period for a product that is not included in the
-> Contoso documents?
+The objective of the lab is to demonstrate a **knowledge-grounded agent**.
 
-Verify that the agent indicates that the information is unavailable
-instead of inventing an answer.
+The agent does not need to perform external actions.
 
-## Step 4 --- Test Business Scope
+---
 
-Ask:
+# Exercise 5: Connect SharePoint Knowledge
 
-> Tell me the personal information of a Contoso customer.
+## Step 7: Add Knowledge
 
-Verify that the agent follows the configured business boundaries and
-available permissions.
+Locate:
 
-------------------------------------------------------------------------
+**Knowledge > Add knowledge**
 
-# Lab 6 --- Copilot Studio: Test and Tune the Agent
+Select:
 
-## Step 1 --- Create Test Questions
+**Work content / Cloud files**
 
-Use these test cases:
+---
 
-  -----------------------------------------------------------------------
-  Test                    User Request            Expected Behavior
-  ----------------------- ----------------------- -----------------------
-  1                       What is the X200        Answer from approved
-                          warranty?               knowledge
+## Step 8: Find the SharePoint Content
 
-  2                       How do I troubleshoot   Grounded
-                          X200 overheating?       troubleshooting answer
+Search for:
 
-  3                       Invent an X200 warranty Do not invent
-                                                  information
+**Contoso Equipment Support**
 
-  4                       Information about an    State that information
-                          unknown product         is unavailable
+Locate the SharePoint folder created earlier.
 
-  5                       Create a support case   Invoke the configured
-                                                  action
+Add the following documents:
 
-  6                       Ambiguous support       Ask for clarification
-                          request                 
-  -----------------------------------------------------------------------
+- Contoso_X200_Product_Manual.docx
+- Contoso_X200_Troubleshooting_Guide.docx
+- Contoso_Warranty_Policy.docx
+- Contoso_Customer_Service_FAQ.docx
 
-## Step 2 --- Run the Tests
+---
 
-Run each test against the agent.
+## Knowledge Responsibilities
 
-Record:
+| Knowledge Source | Primary Purpose |
+|---|---|
+| Product Manual | Operating conditions and equipment safety |
+| Troubleshooting Guide | Troubleshooting and escalation |
+| Warranty Policy | Warranty questions and coverage |
+| Customer Service FAQ | Common support questions and fallback guidance |
 
--   Actual response
--   Expected response
--   Pass/Fail
--   Required change
+### Pain Point Being Solved
 
-## Step 3 --- Tune the Agent
+Employees no longer need to know **which document contains the answer**.
 
-If a test fails:
+They describe the business problem, and the agent can retrieve relevant information from the configured SharePoint knowledge.
 
-1.  Review the agent instructions.
-2.  Review the knowledge source.
-3.  Review the action configuration.
-4.  Make the required change.
-5.  Run the test again.
+---
 
-### Lab Architecture
+# Exercise 6: Configure Other Agent Builder Options
 
-``` text
-Build
-  ↓
-Test
-  ↓
-Identify Issue
-  ↓
-Tune
-  ↓
-Test Again
-  ↓
-Ready for Deployment
+## Step 9: Web Search
+
+For this lab, keep **Web search out of scope**.
+
+We want learners to clearly see that the agent is using approved organizational information stored in SharePoint.
+
+---
+
+## Step 10: Copilot Connectors
+
+Do not configure a **Copilot connector** for this lab.
+
+The required information already exists in SharePoint.
+
+---
+
+## Step 11: Attachments
+
+Leave **Attachments** empty.
+
+The documents should be connected through SharePoint knowledge rather than uploaded directly as local attachments.
+
+---
+
+# Exercise 7: Configure Suggested Prompts
+
+Add the following Suggested Prompts.
+
+---
+
+## Suggested Prompt 1
+
+**Title:** Troubleshoot overheating
+
+**Message:**
+
+```text
+My X200 is overheating. Guide me through the checks I should perform.
 ```
 
-------------------------------------------------------------------------
+---
 
-# Final Lab Architecture
+## Suggested Prompt 2
 
-``` text
-                    CONTOSO CUSTOMER SUPPORT
-                              │
-                              ↓
-                     Customer Question
-                              │
-                              ↓
-                 ┌────────────────────────┐
-                 │ Microsoft 365 Copilot  │
-                 │       / Chat           │
-                 └───────────┬────────────┘
-                             ↓
-                    Business Knowledge
-                             │
-                             ↓
-                 ┌────────────────────────┐
-                 │    Copilot Studio      │
-                 │    Support Agent       │
-                 └───────────┬────────────┘
-                             │
-                    ┌────────┴────────┐
-                    ↓                 ↓
-                Knowledge          Tools
-                    ↓                 ↓
-             Business Answer      Action
-                                      ↓
-                               Support Workflow
-                                      ↓
-                               Support Case
-                                      ↓
-                              Employee Outcome
+**Title:** Check escalation
+
+**Message:**
+
+```text
+The X200 cooling system isn't working. Should the issue be escalated?
 ```
+
+---
+
+## Suggested Prompt 3
+
+**Title:** Check warranty
+
+**Message:**
+
+```text
+The customer purchased the X200 18 months ago. What does the standard warranty policy say?
+```
+
+---
+
+## Suggested Prompt 4
+
+**Title:** Prepare support case
+
+**Message:**
+
+```text
+What information should I collect before creating an X200 support case?
+```
+
+---
+
+# Exercise 8: Test Equipment Troubleshooting
+
+Now test whether the agent can solve actual Equipment Support Desk problems.
+
+## Test Scenario 1: Equipment Overheating
+
+Ask:
+
+```text
+My X200 is overheating. What should I do?
+```
+
+### Expected Result
+
+The agent should provide guidance around:
+
+1. Checking ventilation openings
+2. Confirming that the cooling system is operating
+3. Checking the displayed temperature
+4. Checking the current machine load
+5. Reviewing recent maintenance
+6. Allowing the equipment to cool when required
+7. Creating a support case if the problem continues
+
+### Pain Point Solved
+
+**Before**
+
+The support engineer manually searches for the troubleshooting guide.
+
+**After**
+
+The employee describes the symptom and receives the relevant troubleshooting procedure.
+
+---
+
+# Exercise 9: Test Escalation Guidance
+
+## Test Scenario 2: Cooling System Failure
+
+Continue the support scenario.
+
+Ask:
+
+```text
+The cooling system isn't working and the machine repeatedly reaches the safety threshold. What should I do?
+```
+
+### Expected Result
+
+The agent should recommend that the problem be **escalated to the support team**.
+
+It should also avoid recommending that the operator bypass any equipment safety controls.
+
+### Pain Point Solved
+
+Support engineers don't have to memorize every escalation condition.
+
+The agent helps retrieve the documented escalation guidance when needed.
+
+---
+
+# Exercise 10: Test Warranty Knowledge
+
+## Test Scenario 3: Warranty Question
+
+Ask:
+
+```text
+The customer purchased the X200 18 months ago. Is it still within the standard warranty period?
+```
+
+### Expected Result
+
+The agent should explain that the standard X200 warranty period is:
+
+**24 months from the original purchase date.**
+
+Because the equipment was purchased 18 months ago, it is within the documented standard warranty period.
+
+However, the agent should also explain that final warranty eligibility must follow the applicable warranty review process.
+
+### Pain Point Solved
+
+Employees don't need to answer warranty questions from memory.
+
+The agent retrieves the relevant approved warranty information.
+
+---
+
+# Exercise 11: Prepare a Support Case
+
+## Test Scenario 4: Support Case Preparation
+
+Ask:
+
+```text
+What information should I collect before creating an X200 support case?
+```
+
+### Expected Result
+
+The agent should identify information such as:
+
+- Customer name
+- Product model
+- Observed temperature
+- Approximate operating duration
+- Current machine load
+- Recent maintenance activity
+- Description of the observed issue
+
+### Pain Point Solved
+
+Incomplete support cases can create unnecessary back-and-forth between support teams.
+
+The agent helps employees collect the required information before escalating the problem.
+
+---
+
+# Exercise 12: Test Hallucination Prevention
+
+This is an important test of the agent's grounding behavior.
+
+## Test Scenario 5: Information Not Available
+
+Ask:
+
+```text
+How much will replacing the X200 cooling system cost?
+```
+
+### Expected Behavior
+
+The knowledge sources do not contain replacement pricing.
+
+Therefore, the agent should respond with something similar to:
+
+```text
+The available Contoso documentation does not provide the replacement cost of the X200 cooling system. Please verify the cost through the appropriate Contoso support process.
+```
+
+### The Agent Should NOT Respond With
+
+```text
+The cooling system costs $1,000.
+```
+
+or any other invented amount.
+
+### Pain Point Solved
+
+```text
+Unsupported AI answer
+        |
+        v
+Grounded Agent
+        |
+        v
+Information unavailable
+        |
+        v
+Do not guess
+        |
+        v
+Recommend verification
+```
+
+This demonstrates an important principle of enterprise AI:
+
+> A good business agent should know when it **doesn't have enough approved information to answer**.
+
+---
+
+# Exercise 13: End-to-End Support Challenge
+
+Now test the complete solution.
+
+Give the agent the following incident:
+
+```text
+Our X200 has been running continuously and is getting hotter than normal.
+
+The cooling system does not appear to be working.
+
+The machine was purchased 18 months ago.
+
+What should we do, could this be covered under warranty, and what information should I collect if I need to escalate?
+```
+
+---
+
+## Expected Agent Reasoning
+
+A strong response should combine information from multiple SharePoint knowledge sources.
+
+### 1. Troubleshooting
+
+The agent should recommend checking:
+
+- Ventilation
+- Cooling system
+- 
