@@ -1,4 +1,5 @@
 # AB-100: Architect AI Solutions for Business Productivity
+## Interactive Case study : https://ab100learningresourse.z20.web.core.windows.net/ 
 
 ## High-Level Agenda
 
