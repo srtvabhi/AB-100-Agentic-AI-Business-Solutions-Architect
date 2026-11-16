@@ -1,4 +1,4 @@
-# Demo 1: Autonomous Support Ticket Creation Agent
+# Demo : Autonomous Support Ticket Creation Agent
 
 ## Lab Objective
 Build an AI agent in Microsoft Copilot Studio that analyzes customer support emails, classifies issues, assigns priority, generates a ticket reference, and drafts or sends a structured notification through Outlook.
