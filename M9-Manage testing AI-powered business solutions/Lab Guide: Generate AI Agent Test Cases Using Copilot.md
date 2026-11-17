@@ -1,7 +1,8 @@
 # Lab Guide: Generate AI Agent Test Cases Using Copilot
 
 **Use case:** IT Helpdesk AI Agent  
-**Platform:** Microsoft Copilot 
+**Platform:** Microsoft Copilot / Copilot Studio  
+**Duration:** 60–75 minutes
 
 # 1. Lab Objective
 
@@ -92,11 +93,65 @@ Review BR-001 through BR-010 and US-001. Confirm what is specified versus assume
 
 Open Microsoft Copilot in an approved environment. If testing a Copilot Studio agent, use its test chat separately to execute generated scenarios.
 
-## Step 3 — Paste this prompt
+## Step 3 — Copy and paste this complete prompt into Copilot Chat
 
-Act as a Senior QA Engineer specializing in conversational AI agents. Generate at least 20 manual test cases for an IT Helpdesk AI Agent based only on BR-001 through BR-010 and US-001 supplied below. Cover positive, negative, multi-turn, ambiguous-input, out-of-scope, escalation, privacy, hallucination, knowledge grounding, API failure, and duplicate-submission scenarios. For each test include: Test ID, Requirement ID, Purpose, Preconditions, User Utterance / Inputs, Detailed Steps, Expected Results, Edge Cases, Dependencies, and Priority. Map each test to a requirement. Do not invent policies or thresholds. Label missing expected behavior as “Needs business confirmation.” Then produce a requirement traceability matrix and list unanswered business questions.
+**Instructions:** Use the **Copy** control on the code block (available in GitHub and many Markdown editors), then paste the entire prompt into Microsoft Copilot Chat. This prompt is self-contained; you do **not** need to paste Sections 5–6 separately.
 
-Paste the business requirements and acceptance criteria from Sections 5–6 immediately after this prompt.
+> **Note:** Standard Markdown does not define a clickable copy button. The fenced code block below provides a copy button in Markdown viewers that support one. In other viewers, select and copy the text manually.
+
+```text
+Act as a Senior QA Engineer specializing in Microsoft Copilot Studio and conversational AI agent testing.
+
+TASK
+Generate at least 20 detailed, executable MANUAL test cases for the fictional IT Helpdesk AI Agent described below. Use only the requirements and acceptance criteria provided. Do not invent business policies, integrations, thresholds, or error messages.
+
+BUSINESS SCENARIO
+An employee-facing IT Helpdesk AI Agent answers questions from approved IT knowledge sources, provides troubleshooting guidance, collects ticket details, creates tickets using a connected ticketing service, and escalates unresolved issues to human IT support.
+
+BUSINESS REQUIREMENTS
+BR-001: Answer IT support questions using approved knowledge sources.
+BR-002: Provide troubleshooting instructions for common IT problems.
+BR-003: Create a support ticket when requested by an employee.
+BR-004: Collect mandatory ticket details before submission.
+BR-005: Provide a ticket reference after successful creation.
+BR-006: Escalate unresolved issues to a human IT team.
+BR-007: Handle requests outside the agent's supported scope appropriately.
+BR-008: Prevent disclosure of confidential or unauthorized employee data.
+BR-009: Handle ticketing service outages or failures without misleading the user.
+BR-010: Maintain relevant context across follow-up messages.
+
+USER STORY — US-001: CREATE AN IT SUPPORT TICKET
+As an employee, I want to report an IT issue through the Helpdesk Agent so that I can get assistance or create a support ticket without manually contacting the helpdesk.
+
+ACCEPTANCE CRITERIA
+AC-001: Recognize a request to create an IT ticket.
+AC-002: Collect issue category, issue description, and impact before submission (sample mandatory fields for this lab).
+AC-003: Show a summary of ticket details and request confirmation before submission.
+AC-004: Submit the confirmed ticket to the connected ticketing service.
+AC-005: Show a valid ticket reference only after successful ticket creation.
+AC-006: If creation fails, explain the failure and offer retry or escalation without inventing a reference.
+
+TEST COVERAGE
+Include positive, negative, missing-field, ambiguous-input, multi-turn context, revised-input, cancellation, out-of-scope, escalation, privacy/authorization, prompt-injection, hallucination/knowledge-grounding, conflicting-knowledge, ticket API outage, timeout, and duplicate-submission scenarios.
+
+OUTPUT REQUIREMENTS
+1. Generate at least 20 unique manual test cases.
+2. For every test case provide these columns:
+   Test Case ID | Requirement ID | User Story / Acceptance Criteria ID | Test Case Purpose | Preconditions | Test Inputs / User Utterances | Detailed Execution Steps | Expected Results | Edge Cases | Dependencies | Priority
+3. Use unique IDs such as TC-001, TC-002, and so on.
+4. Write test steps as numbered actions and expected results as observable pass criteria.
+5. Use synthetic employee information and sample ticket data only.
+6. Map each test to BR-001 through BR-010; include relevant AC IDs where applicable.
+7. Where expected behavior is not specified, write "Needs business confirmation" and state the missing decision. Do not pretend the behavior is approved.
+8. After the test case table, create a requirement traceability matrix mapping every BR ID to its test case IDs and flag any coverage gaps.
+9. List missing business rules, dependencies, assumptions, and questions for the product owner.
+10. Finally, provide a short QA review checklist for checking completeness, duplicates, feasibility, and privacy.
+
+OUTPUT FORMAT
+Use Markdown tables suitable for copying into Excel. Keep steps specific enough for manual execution. Distinguish expected behavior from any assumptions.
+```
+
+**Expected result:** Copilot returns a requirement-linked test case table, a traceability matrix, and a list of open questions. Review its output before using it as an approved test suite.
 
 ## Step 4 — Review sample test cases
 
